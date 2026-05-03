@@ -65,7 +65,7 @@ Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula a
 
 ### Opción 1: Web (recomendada)
 
-1. Abrir en cualquier navegador: [https://psbella.github.io/Cierre-remis/](https://psbella.github.io/Cierre-remis/)
+1. Abrir en cualquier navegador: [https://psbella.github.io/cierre_remis/](https://psbella.github.io/cierre_remis/)
 2. Completar los datos del turno
 3. Los resultados se actualizan automáticamente
 4. Exportar a PDF, compartir por WhatsApp o enviar por email
