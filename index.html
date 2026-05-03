@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Cierre de Turno - Remis</title>
+    <title>Cierre de Turno</title>
     <style>
-        /* ---------- ESTILOS GENERALES ---------- */
+        /* ============================================= */
+        /* ESTILOS GENERALES                             */
+        /* ============================================= */
+        
         * {
             box-sizing: border-box;
             margin: 0;
@@ -24,57 +27,57 @@
             margin: 0 auto;
             background: white;
             border-radius: 16px;
-            padding: 24px;
+            padding: 20px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         /* Títulos */
         h1 {
-            font-size: 1.6rem;
+            font-size: 1.5rem;
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
             color: #2c3e50;
         }
 
         .subtitulo {
             text-align: center;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             color: #7f8c8d;
-            margin-bottom: 24px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #ddd;
-            padding-bottom: 12px;
+            padding-bottom: 10px;
         }
 
         /* Secciones con fondo gris claro */
         .seccion {
             background: #f5f5f5;
             border-radius: 12px;
-            padding: 16px;
-            margin-bottom: 20px;
+            padding: 14px;
+            margin-bottom: 16px;
         }
 
         .seccion h3 {
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #2c3e50;
-            font-size: 1rem;
+            font-size: 0.9rem;
             border-left: 4px solid #3498db;
             padding-left: 10px;
         }
 
         /* Campos de entrada */
         .campo {
-            margin-bottom: 14px;
+            margin-bottom: 12px;
         }
 
         label {
             display: block;
             font-weight: 600;
-            margin-bottom: 5px;
-            font-size: 0.85rem;
+            margin-bottom: 4px;
+            font-size: 0.8rem;
             color: #2c3e50;
         }
 
-        input {
+        input, textarea {
             width: 100%;
             padding: 10px 12px;
             font-size: 0.95rem;
@@ -85,12 +88,24 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        input:focus {
+        /* En celulares, muestra teclado numérico */
+        input[type="number"] {
+            inputmode: numeric;
+        }
+
+        /* Área de texto con altura redimensionable */
+        textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        /* Efecto al enfocar un campo */
+        input:focus, textarea:focus {
             outline: none;
             border-color: #3498db;
         }
 
-        /* Dos columnas */
+        /* Dos columnas para pantallas más grandes */
         .fila-2 {
             display: flex;
             gap: 12px;
@@ -101,20 +116,22 @@
             flex: 1;
         }
 
-        /* Resultados principales (TITULAR y CHOFER) */
+        /* ============================================= */
+        /* RESULTADOS PRINCIPALES (TITULAR Y CHOFER)      */
+        /* ============================================= */
+        
         .resultados {
-            margin-top: 24px;
+            margin-top: 20px;
             background: #ecf0f1;
             border-radius: 12px;
-            padding: 16px;
+            padding: 14px;
         }
 
         .resultado-item {
             display: flex;
             justify-content: space-between;
-            padding: 10px 0;
+            padding: 8px 0;
             font-size: 1rem;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .resultado-item:first-child {
@@ -124,121 +141,83 @@
         .titular {
             color: #27ae60;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .chofer {
             color: #2980b9;
             font-weight: bold;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
 
         .total-numero {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             font-weight: bold;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         /* Estadísticas (promedios) */
         .estadistica {
             background: #fff8e1;
             border-radius: 8px;
-            padding: 10px;
-            margin-top: 12px;
+            padding: 8px;
+            margin-top: 10px;
         }
 
         .estadistica-item {
             display: flex;
             justify-content: space-between;
-            padding: 6px 0;
-            font-size: 0.85rem;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            padding: 5px 0;
+            font-size: 0.8rem;
         }
 
-        /* Botonera principal (PDF, WhatsApp, Email) */
+        /* ============================================= */
+        /* BOTONERA CON 3 BOTONES (PDF, WHATSAPP, EMAIL) */
+        /* ============================================= */
+        
         .botonera {
             display: flex;
             gap: 10px;
             flex-wrap: wrap;
-            margin-top: 16px;
+            margin: 20px 0 16px 0;
         }
 
         .botonera button {
             flex: 1;
-            padding: 12px 16px;
-            font-size: 1rem;
+            padding: 12px 12px;
+            font-size: 0.9rem;
             font-weight: bold;
             border: none;
             border-radius: 8px;
             cursor: pointer;
             transition: 0.2s;
+            background: #3498db;
             color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         .botonera button:active {
             transform: scale(0.98);
-        }
-
-        .btn-pdf {
-            background: #e74c3c;
-        }
-
-        .btn-pdf:active {
-            background: #c0392b;
-        }
-
-        .btn-whatsapp {
-            background: #25D366;
-        }
-
-        .btn-whatsapp:active {
-            background: #128C7E;
-        }
-
-        .btn-email {
-            background: #6c5ce7;
-        }
-
-        .btn-email:active {
-            background: #5b4bc4;
-        }
-
-        /* Botón desplegable de detalle (azul como los demás) */
-        .detalle-container {
-            margin-top: 16px;
-        }
-
-        .btn-detalle {
-            background: #3498db;
-            width: 100%;
-            margin-top: 0;
-        }
-
-        .btn-detalle:active {
             background: #2980b9;
         }
 
-        /* Contenido del desplegable (oculto por defecto) */
+        /* ============================================= */
+        /* DETALLE DE CUENTA (SIEMPRE VISIBLE)           */
+        /* ============================================= */
+        
         .detalle-content {
-            display: none;
             background: white;
             border-radius: 12px;
-            margin-top: 12px;
-            padding: 16px;
+            margin-top: 8px;
+            padding: 14px;
             border: 1px solid #ddd;
-        }
-
-        .detalle-content.mostrar {
-            display: block;
         }
 
         .detalle-item {
             display: flex;
             justify-content: space-between;
-            padding: 8px 0;
+            padding: 6px 0;
             border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
         .detalle-item:last-child {
@@ -248,13 +227,13 @@
         .detalle-total-titular {
             color: #27ae60;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .detalle-total-chofer {
             color: #2980b9;
             font-weight: bold;
-            font-size: 1rem;
+            font-size: 0.9rem;
         }
 
         .detalle-subtotal {
@@ -264,24 +243,39 @@
 
         .detalle-operacion {
             color: #7f8c8d;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-align: left;
-            margin-top: 10px;
-            padding-top: 10px;
+            margin-top: 8px;
+            padding-top: 8px;
             border-top: 1px dashed #ccc;
         }
 
         .separador {
             border-top: 2px solid #ccc;
-            margin: 10px 0;
+            margin: 8px 0;
         }
 
-        /* FOOTER - discreto, chiquito, centrado */
+        /* ============================================= */
+        /* CAMPO DE NOTAS                                */
+        /* ============================================= */
+        
+        .notas {
+            margin: 16px 0;
+        }
+
+        .notas textarea {
+            background: #fffef7;
+        }
+
+        /* ============================================= */
+        /* FOOTER                                        */
+        /* ============================================= */
+        
         .footer {
-            margin-top: 24px;
-            padding-top: 12px;
+            margin-top: 20px;
+            padding-top: 10px;
             text-align: center;
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             color: #95a5a6;
             border-top: 1px solid #ecf0f1;
         }
@@ -296,7 +290,10 @@
             text-decoration: underline;
         }
 
-        /* Responsive para celulares */
+        /* ============================================= */
+        /* RESPONSIVE PARA CELULARES                     */
+        /* ============================================= */
+        
         @media (max-width: 500px) {
             .container {
                 padding: 16px;
@@ -309,25 +306,25 @@
             }
         }
     </style>
-
+    
     <!-- Librería jsPDF para generar PDFs livianos (sin convertir a imagen) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-    <h1>CIERRE DE TURNO - REMIS</h1>
+    <h1>CIERRE DE TURNO</h1>
     <div class="subtitulo">Liquidacion para chofer y titular</div>
 
-    <!-- ========================================= -->
-    <!-- SECCION 1: DATOS DEL TURNO                -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- SECCION 1: DATOS DEL TURNO                     -->
+    <!-- ============================================= -->
     <div class="seccion">
         <h3>DATOS DEL TURNO</h3>
         <div class="fila-2">
             <div class="campo">
                 <label>Fecha</label>
-                <input type="date" id="fecha" value="2026-05-02">
+                <input type="date" id="fecha" value="2026-05-03">
             </div>
             <div class="campo">
                 <label>Licencia</label>
@@ -340,70 +337,75 @@
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- SECCION 2: MOVIMIENTOS DEL TURNO          -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- SECCION 2: MOVIMIENTOS DEL TURNO               -->
+    <!-- ============================================= -->
     <div class="seccion">
         <h3>MOVIMIENTOS DEL TURNO</h3>
 
+        <!-- Fila: Viajes y Kilometros -->
         <div class="fila-2">
             <div class="campo">
                 <label>Cantidad de viajes</label>
-                <input type="number" id="viajes" placeholder="" step="any">
+                <input type="number" id="viajes" placeholder="" step="any" inputmode="numeric">
             </div>
             <div class="campo">
                 <label>Kilometros recorridos</label>
-                <input type="number" id="kilometros" placeholder="" step="any">
+                <input type="number" id="kilometros" placeholder="" step="any" inputmode="numeric">
             </div>
         </div>
 
+        <!-- Recaudacion y Combustible (cada uno en su fila completa) -->
         <div class="campo">
             <label>Recaudacion</label>
-            <input type="number" id="recaudacion" placeholder="" step="any">
+            <input type="number" id="recaudacion" placeholder="" step="any" inputmode="numeric">
         </div>
 
         <div class="campo">
             <label>Combustible</label>
-            <input type="number" id="combustible" placeholder="" step="any">
+            <input type="number" id="combustible" placeholder="" step="any" inputmode="numeric">
         </div>
 
+        <!-- Fila: Frecuencia y Tarjeta/QR -->
         <div class="fila-2">
             <div class="campo">
                 <label>Frecuencia</label>
-                <input type="number" id="frecuencia" placeholder="" step="any">
+                <input type="number" id="frecuencia" placeholder="" step="any" inputmode="numeric">
             </div>
             <div class="campo">
                 <label>Tarjeta / QR</label>
-                <input type="number" id="tarjeta_qr" placeholder="" step="any">
+                <input type="number" id="tarjeta_qr" placeholder="" step="any" inputmode="numeric">
             </div>
         </div>
 
+        <!-- Fila: Voucher y Token -->
         <div class="fila-2">
             <div class="campo">
                 <label>Voucher</label>
-                <input type="number" id="voucher" placeholder="" step="any">
+                <input type="number" id="voucher" placeholder="" step="any" inputmode="numeric">
             </div>
             <div class="campo">
                 <label>Token</label>
-                <input type="number" id="token" placeholder="" step="any">
+                <input type="number" id="token" placeholder="" step="any" inputmode="numeric">
             </div>
         </div>
 
+        <!-- Fila: Cuenta Corriente y Gastos -->
         <div class="fila-2">
             <div class="campo">
                 <label>Cuenta Corriente</label>
-                <input type="number" id="cuenta_corriente" placeholder="" step="any">
+                <input type="number" id="cuenta_corriente" placeholder="" step="any" inputmode="numeric">
             </div>
             <div class="campo">
                 <label>Gastos</label>
-                <input type="number" id="gastos" placeholder="" step="any">
+                <input type="number" id="gastos" placeholder="" step="any" inputmode="numeric">
             </div>
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- RESULTADOS PRINCIPALES (siempre visibles) -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- RESULTADOS PRINCIPALES (siempre visibles)      -->
+    <!-- ============================================= -->
     <div class="resultados">
         <div class="resultado-item">
             <strong class="titular">TITULAR</strong>
@@ -414,6 +416,7 @@
             <span class="total-numero chofer" id="totalChofer">$ 0</span>
         </div>
 
+        <!-- Promedios -->
         <div class="estadistica">
             <div class="estadistica-item">
                 <span>Promedio por viaje</span>
@@ -426,103 +429,114 @@
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- BOTON DESPLEGABLE CON DETALLE             -->
-    <!-- ========================================= -->
-    <div class="detalle-container">
-        <button id="btnDetalle" class="btn-detalle">CONSULTAR DETALLE</button>
-        <div id="detalleContent" class="detalle-content">
-            <!-- TITULAR -->
-            <div style="font-weight: bold; margin-bottom: 8px; color: #27ae60;">TITULAR</div>
-            <div class="detalle-item">
-                <span>Total (Recaudacion)</span>
-                <strong id="detTotal">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Combustible</span>
-                <strong id="detCombustible">$ 0</strong>
-            </div>
-            <div class="detalle-item detalle-subtotal">
-                <span>Subtotal</span>
-                <strong id="detSubtotal1">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>50%</span>
-                <strong id="det50">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Frecuencia</span>
-                <strong id="detFrecuencia">$ 0</strong>
-            </div>
-            <div class="detalle-item detalle-subtotal">
-                <span>Sub total</span>
-                <strong id="detSubtotal2">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Tarjeta / QR</span>
-                <strong id="detTarjeta">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Voucher</span>
-                <strong id="detVoucher">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Token</span>
-                <strong id="detToken">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Cuenta Corriente</span>
-                <strong id="detCtaCte">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Gastos</span>
-                <strong id="detGastos">$ 0</strong>
-            </div>
-            <div class="detalle-item detalle-total-titular">
-                <span>TOTAL TITULAR</span>
-                <strong id="detTotalTitular">$ 0</strong>
-            </div>
-
-            <div class="separador"></div>
-
-            <!-- CHOFER -->
-            <div style="font-weight: bold; margin-bottom: 8px; margin-top: 8px; color: #2980b9;">CHOFER</div>
-            <div class="detalle-item">
-                <span>Base 50%</span>
-                <strong id="detChoferBase">$ 0</strong>
-            </div>
-            <div class="detalle-item">
-                <span>Frecuencia</span>
-                <strong id="detChoferFrecuencia">$ 0</strong>
-            </div>
-            <div class="detalle-item detalle-total-chofer">
-                <span>TOTAL CHOFER</span>
-                <strong id="detTotalChofer">$ 0</strong>
-            </div>
-
-            <div class="detalle-operacion" id="detOperacion"></div>
-        </div>
-    </div>
-
-    <!-- ========================================= -->
-    <!-- BOTONERA PRINCIPAL                        -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- BOTONERA CON 3 BOTONES (PDF, WHATSAPP, EMAIL) -->
+    <!-- ============================================= -->
     <div class="botonera">
-        <button id="exportarPDF" class="btn-pdf">PDF</button>
-        <button id="enviarWhatsapp" class="btn-whatsapp">WHATSAPP</button>
-        <button id="enviarEmail" class="btn-email">EMAIL</button>
+        <button id="exportarPDF">PDF</button>
+        <button id="enviarWhatsapp">WHATSAPP</button>
+        <button id="enviarEmail">EMAIL</button>
     </div>
 
-    <!-- ========================================= -->
-    <!-- FOOTER (discreto, chiquito, con mail)     -->
-    <!-- ========================================= -->
+    <!-- ============================================= -->
+    <!-- DETALLE DE CUENTA (SIEMPRE VISIBLE)            -->
+    /* ============================================= */
+    <div class="detalle-content">
+        <!-- Sección TITULAR -->
+        <div style="font-weight: bold; margin-bottom: 6px; color: #27ae60;">TITULAR</div>
+        <div class="detalle-item">
+            <span>Total (Recaudacion)</span>
+            <strong id="detTotal">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Combustible</span>
+            <strong id="detCombustible">$ 0</strong>
+        </div>
+        <div class="detalle-item detalle-subtotal">
+            <span>Subtotal</span>
+            <strong id="detSubtotal1">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>50%</span>
+            <strong id="det50">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Frecuencia</span>
+            <strong id="detFrecuencia">$ 0</strong>
+        </div>
+        <div class="detalle-item detalle-subtotal">
+            <span>Sub total</span>
+            <strong id="detSubtotal2">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Tarjeta / QR</span>
+            <strong id="detTarjeta">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Voucher</span>
+            <strong id="detVoucher">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Token</span>
+            <strong id="detToken">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Cuenta Corriente</span>
+            <strong id="detCtaCte">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Gastos</span>
+            <strong id="detGastos">$ 0</strong>
+        </div>
+        <div class="detalle-item detalle-total-titular">
+            <span>TOTAL TITULAR</span>
+            <strong id="detTotalTitular">$ 0</strong>
+        </div>
+
+        <!-- Separador entre TITULAR y CHOFER -->
+        <div class="separador"></div>
+
+        <!-- Sección CHOFER -->
+        <div style="font-weight: bold; margin-bottom: 6px; margin-top: 4px; color: #2980b9;">CHOFER</div>
+        <div class="detalle-item">
+            <span>Base 50%</span>
+            <strong id="detChoferBase">$ 0</strong>
+        </div>
+        <div class="detalle-item">
+            <span>Frecuencia</span>
+            <strong id="detChoferFrecuencia">$ 0</strong>
+        </div>
+        <div class="detalle-item detalle-total-chofer">
+            <span>TOTAL CHOFER</span>
+            <strong id="detTotalChofer">$ 0</strong>
+        </div>
+
+        <!-- Operación completa explicada -->
+        <div class="detalle-operacion" id="detOperacion"></div>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- CAMPO DE NOTAS U OBSERVACIONES                 -->
+    <!-- ============================================= -->
+    <div class="notas">
+        <label>Notas u observaciones</label>
+        <textarea id="notas" placeholder="Ej: Llantas presion baja, aceite para el proximo turno, cliente pendiente, etc..."></textarea>
+    </div>
+
+    <!-- ============================================= -->
+    <!-- FOOTER                                         -->
+    <!-- ============================================= -->
     <div class="footer">
         desarrollado por Pablo Bella - <a href="mailto:Pablo.s.bella@gmail.com">Pablo.s.bella@gmail.com</a>
     </div>
-
 </div>
 
 <script>
+    // =============================================
+    // CONFIGURACIÓN INICIAL Y REFERENCIAS A ELEMENTOS
+    // =============================================
+    
+    // Obtener la librería jsPDF
     const { jsPDF } = window.jspdf;
     
     // Elementos de entrada (inputs)
@@ -539,6 +553,7 @@
     const fechaInput           = document.getElementById('fecha');
     const licenciaInput        = document.getElementById('licencia');
     const choferInput          = document.getElementById('choferNombre');
+    const notasTextarea        = document.getElementById('notas');
 
     // Elementos donde se muestran los resultados principales
     const totalTitularSpan     = document.getElementById('totalTitular');
@@ -564,30 +579,43 @@
     const detChoferBase        = document.getElementById('detChoferBase');
     const detChoferFrecuencia  = document.getElementById('detChoferFrecuencia');
     const detTotalChofer       = document.getElementById('detTotalChofer');
-
     const detOperacion         = document.getElementById('detOperacion');
 
-    // --------------------------------------------------------------
-    // FUNCIONES DE FORMATEO
-    // --------------------------------------------------------------
+    // =============================================
+    // FUNCIONES AUXILIARES DE FORMATEO
+    // =============================================
+    
+    // Formatea un número como pesos argentinos (sin centavos)
     function formatearPesos(valor) {
-        // Sin centavos, con separador de miles
         return '$ ' + valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
 
+    // Formatea un número sin símbolo de pesos (para cantidades como viajes, km)
     function formatearNumero(valor) {
-        // Para cantidades (viajes, km) sin símbolo $
         return valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
 
-    // --------------------------------------------------------------
+    // Convierte fecha ISO (YYYY-MM-DD) a formato DD/MM/AAAA
+    function formatearFechaDDMMAAAA(fechaISO) {
+        if (!fechaISO) return '';
+        const partes = fechaISO.split('-');
+        if (partes.length !== 3) return fechaISO;
+        return `${partes[2]}/${partes[1]}/${partes[0]}`;
+    }
+
+    // =============================================
     // OBTENER DATOS DE LOS INPUTS
-    // --------------------------------------------------------------
+    // =============================================
     function obtenerDatos() {
         return {
+            // Datos del turno
             fecha:          fechaInput.value,
+            fechaFormateada: formatearFechaDDMMAAAA(fechaInput.value),
             licencia:       licenciaInput.value || '',
             chofer:         choferInput.value || '',
+            notas:          notasTextarea.value || '',
+            
+            // Movimientos
             viajes:         parseFloat(viajesInput.value) || 0,
             kilometros:     parseFloat(kilometrosInput.value) || 0,
             recaudacion:    parseFloat(recaudacionInput.value) || 0,
@@ -601,49 +629,56 @@
         };
     }
 
-    // --------------------------------------------------------------
-    // CALCULO SEGUN LA LOGICA DEL NEGOCIO
-    // --------------------------------------------------------------
+    // =============================================
+    // CÁLCULO SEGÚN LA LÓGICA DEL NEGOCIO
+    // =============================================
+    // Las fórmulas son:
+    // - Base 50% = (Recaudación - Combustible) / 2
+    // - TOTAL TITULAR = Base 50% + Frecuencia - (Tarjeta/QR + Voucher + Token + Cuenta Corriente + Gastos)
+    // - TOTAL CHOFER = Base 50% - Frecuencia
+    // - Promedio por viaje = Recaudación / Cantidad de viajes
+    // - Promedio por kilómetro = Recaudación / Kilómetros recorridos
+    // =============================================
     function calcularTodo() {
         const d = obtenerDatos();
         
-        // Paso 1: Recaudacion - Combustible
+        // Paso 1: Recaudación - Combustible
         const despuesCombustible = d.recaudacion - d.combustible;
         
         // Paso 2: Divido por 2 (base 50/50)
         const base50 = despuesCombustible / 2;
         
-        // Paso 3: Descuentos que solo afectan al TITULAR
+        // Paso 3: Suma de descuentos que afectan SOLO al titular
         const descuentosTitular = d.tarjetaQr + d.voucher + d.token + d.cuentaCorriente + d.gastos;
         
-        // Paso 4: TOTAL TITULAR = base50 + frecuencia - descuentosTitular
+        // Paso 4: TOTAL TITULAR
         const totalTitular = base50 + d.frecuencia - descuentosTitular;
         
-        // Paso 5: TOTAL CHOFER = base50 - frecuencia
+        // Paso 5: TOTAL CHOFER
         const totalChofer = base50 - d.frecuencia;
         
-        // Promedios
+        // Promedios (solo si los valores son mayores a cero)
         let promedioViaje = 0;
         let promedioKm = 0;
         if (d.viajes > 0) promedioViaje = d.recaudacion / d.viajes;
         if (d.kilometros > 0) promedioKm = d.recaudacion / d.kilometros;
         
-        return { 
-            totalTitular, 
-            totalChofer, 
-            promedioViaje, 
-            promedioKm, 
+        return {
+            totalTitular,
+            totalChofer,
+            promedioViaje,
+            promedioKm,
             base50,
             despuesCombustible,
             descuentosTitular,
-            ...d 
+            ...d
         };
     }
 
-    // --------------------------------------------------------------
-    // ACTUALIZAR PANTALLA COMPLETA (resultados + detalle)
+    // =============================================
+    // ACTUALIZAR PANTALLLA COMPLETA
     // Se ejecuta automáticamente al escribir en cualquier input
-    // --------------------------------------------------------------
+    // =============================================
     function actualizarPantalla() {
         const r = calcularTodo();
         
@@ -672,16 +707,44 @@
         detChoferFrecuencia.textContent = formatearPesos(r.frecuencia);
         detTotalChofer.textContent    = formatearPesos(r.totalChofer);
         
-        // Mostrar operación desglosada (útil para entender el cálculo)
+        // Mostrar operación desglosada (explicación paso a paso)
         detOperacion.innerHTML = `TITULAR: ${formatearPesos(r.recaudacion)} - ${formatearPesos(r.combustible)} = ${formatearPesos(r.despuesCombustible)} / 2 = ${formatearPesos(r.base50)} + ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.base50 + r.frecuencia)} - (${formatearPesos(r.tarjetaQr)} + ${formatearPesos(r.voucher)} + ${formatearPesos(r.token)} + ${formatearPesos(r.cuentaCorriente)} + ${formatearPesos(r.gastos)}) = ${formatearPesos(r.totalTitular)}<br><br>CHOFER: ${formatearPesos(r.base50)} - ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.totalChofer)}`;
     }
 
-    // --------------------------------------------------------------
-    // EXPORTAR PDF (usando jsPDF, sin convertir a imagen, liviano)
-    // --------------------------------------------------------------
+    // =============================================
+    // NAVEGACIÓN CON TECLA ENTER (solo PC)
+    // Permite pasar al siguiente campo presionando Enter
+    // =============================================
+    function setupEnterNavigation() {
+        // Seleccionar todos los campos de entrada (inputs y textarea)
+        const campos = document.querySelectorAll('input, textarea');
+        
+        campos.forEach((campo, index) => {
+            campo.addEventListener('keypress', (e) => {
+                // Si la tecla presionada es Enter
+                if (e.key === 'Enter') {
+                    e.preventDefault(); // Evita que el formulario se envíe o recargue
+                    
+                    // Obtener el siguiente campo
+                    const siguienteCampo = campos[index + 1];
+                    
+                    // Si existe, enfocarlo y seleccionar su contenido
+                    if (siguienteCampo) {
+                        siguienteCampo.focus();
+                        siguienteCampo.select();
+                    }
+                }
+            });
+        });
+    }
+
+    // =============================================
+    // EXPORTAR A PDF (usando jsPDF, formato tabla)
+    // =============================================
     function exportarPDF() {
         const r = calcularTodo();
         
+        // Crear nuevo documento PDF
         const pdf = new jsPDF({
             orientation: 'portrait',
             unit: 'mm',
@@ -690,113 +753,165 @@
         
         pdf.setFont('helvetica');
         
-        // Título principal
+        // ===== TÍTULO PRINCIPAL =====
         pdf.setFontSize(18);
         pdf.setFont(undefined, 'bold');
-        pdf.text('CIERRE DE TURNO - REMIS', 105, 20, { align: 'center' });
+        pdf.text('CIERRE DE TURNO', 105, 20, { align: 'center' });
         
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
         pdf.text('Liquidacion para chofer y titular', 105, 28, { align: 'center' });
         
-        let y = 40;
+        let y = 40; // Posición vertical actual
         
-        // DATOS DEL TURNO
-        pdf.setFontSize(12);
+        // ===== DATOS DEL TURNO =====
+        pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('DATOS DEL TURNO', 20, y);
-        y += 7;
+        y += 6;
         
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
-        pdf.text('Fecha:', 20, y);
-        pdf.text(r.fecha, 70, y);
-        y += 7;
-        pdf.text('Licencia:', 20, y);
-        pdf.text(r.licencia, 70, y);
-        y += 7;
-        pdf.text('Chofer:', 20, y);
-        pdf.text(r.chofer, 70, y);
-        y += 15;
+        pdf.text(`Fecha: ${r.fechaFormateada}`, 20, y);
+        y += 6;
+        pdf.text(`Licencia: ${r.licencia}`, 20, y);
+        y += 6;
+        pdf.text(`Chofer: ${r.chofer}`, 20, y);
+        y += 12;
         
-        // MOVIMIENTOS
-        pdf.setFontSize(12);
+        // ===== MOVIMIENTOS =====
+        pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('MOVIMIENTOS', 20, y);
-        y += 7;
+        y += 6;
         
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
-        pdf.text('Cantidad de viajes:', 20, y);
-        pdf.text(formatearNumero(r.viajes), 85, y);
-        pdf.text('Kilometros recorridos:', 120, y);
-        pdf.text(formatearNumero(r.kilometros), 185, y);
-        y += 7;
+        pdf.text(`Cantidad de viajes: ${formatearNumero(r.viajes)}`, 20, y);
+        pdf.text(`Kilometros recorridos: ${formatearNumero(r.kilometros)}`, 120, y);
+        y += 6;
+        pdf.text(`Recaudacion: ${formatearPesos(r.recaudacion)}`, 20, y);
+        pdf.text(`Combustible: ${formatearPesos(r.combustible)}`, 120, y);
+        y += 6;
+        pdf.text(`Frecuencia: ${formatearPesos(r.frecuencia)}`, 20, y);
+        pdf.text(`Tarjeta / QR: ${formatearPesos(r.tarjetaQr)}`, 120, y);
+        y += 6;
+        pdf.text(`Voucher: ${formatearPesos(r.voucher)}`, 20, y);
+        pdf.text(`Token: ${formatearPesos(r.token)}`, 120, y);
+        y += 6;
+        pdf.text(`Cuenta Corriente: ${formatearPesos(r.cuentaCorriente)}`, 20, y);
+        pdf.text(`Gastos: ${formatearPesos(r.gastos)}`, 120, y);
+        y += 12;
         
-        pdf.text('Recaudacion:', 20, y);
-        pdf.text(formatearPesos(r.recaudacion), 85, y);
-        pdf.text('Combustible:', 120, y);
-        pdf.text(formatearPesos(r.combustible), 185, y);
-        y += 7;
-        
-        pdf.text('Frecuencia:', 20, y);
-        pdf.text(formatearPesos(r.frecuencia), 85, y);
-        pdf.text('Tarjeta / QR:', 120, y);
-        pdf.text(formatearPesos(r.tarjetaQr), 185, y);
-        y += 7;
-        
-        pdf.text('Voucher:', 20, y);
-        pdf.text(formatearPesos(r.voucher), 85, y);
-        pdf.text('Token:', 120, y);
-        pdf.text(formatearPesos(r.token), 185, y);
-        y += 7;
-        
-        pdf.text('Cuenta Corriente:', 20, y);
-        pdf.text(formatearPesos(r.cuentaCorriente), 85, y);
-        pdf.text('Gastos:', 120, y);
-        pdf.text(formatearPesos(r.gastos), 185, y);
-        y += 15;
-        
-        // RESULTADOS
-        pdf.setFontSize(12);
+        // ===== RESULTADOS PRINCIPALES =====
+        pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('RESULTADOS', 20, y);
+        y += 6;
+        
+        pdf.setFontSize(11);
+        pdf.text(`TITULAR: ${formatearPesos(r.totalTitular)}`, 20, y);
         y += 7;
+        pdf.text(`CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
+        y += 12;
         
-        pdf.setFontSize(12);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('TITULAR:', 20, y);
-        pdf.text(formatearPesos(r.totalTitular), 85, y);
-        y += 8;
-        pdf.text('CHOFER:', 20, y);
-        pdf.text(formatearPesos(r.totalChofer), 85, y);
-        y += 15;
-        
-        // PROMEDIOS
-        pdf.setFontSize(12);
+        // ===== PROMEDIOS =====
+        pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('PROMEDIOS', 20, y);
-        y += 7;
+        y += 6;
         
         pdf.setFontSize(10);
         pdf.setFont(undefined, 'normal');
-        pdf.text('Promedio por viaje:', 20, y);
-        pdf.text(formatearPesos(r.promedioViaje), 85, y);
-        y += 7;
-        pdf.text('Promedio por kilometro:', 20, y);
-        pdf.text(formatearPesos(r.promedioKm), 85, y);
+        pdf.text(`Promedio por viaje: ${formatearPesos(r.promedioViaje)}`, 20, y);
+        y += 6;
+        pdf.text(`Promedio por kilometro: ${formatearPesos(r.promedioKm)}`, 20, y);
+        y += 12;
         
-        // Guardar PDF con nombre dinámico (fecha + chofer)
+        // ===== DESGLOSE TITULAR =====
+        pdf.setFontSize(11);
+        pdf.setFont(undefined, 'bold');
+        pdf.text('DESGLOSE TITULAR', 20, y);
+        y += 6;
+        
+        pdf.setFontSize(9);
+        pdf.setFont(undefined, 'normal');
+        pdf.text(`Total (Recaudacion): ${formatearPesos(r.recaudacion)}`, 20, y);
+        y += 5;
+        pdf.text(`Combustible: - ${formatearPesos(r.combustible)}`, 20, y);
+        y += 5;
+        pdf.text(`Subtotal: ${formatearPesos(r.despuesCombustible)}`, 20, y);
+        y += 5;
+        pdf.text(`50%: ${formatearPesos(r.base50)}`, 20, y);
+        y += 5;
+        pdf.text(`Frecuencia: + ${formatearPesos(r.frecuencia)}`, 20, y);
+        y += 5;
+        pdf.text(`Sub total: ${formatearPesos(r.base50 + r.frecuencia)}`, 20, y);
+        y += 5;
+        pdf.text(`Tarjeta/QR: - ${formatearPesos(r.tarjetaQr)}`, 20, y);
+        y += 5;
+        pdf.text(`Voucher: - ${formatearPesos(r.voucher)}`, 20, y);
+        y += 5;
+        pdf.text(`Token: - ${formatearPesos(r.token)}`, 20, y);
+        y += 5;
+        pdf.text(`Cuenta Corriente: - ${formatearPesos(r.cuentaCorriente)}`, 20, y);
+        y += 5;
+        pdf.text(`Gastos: - ${formatearPesos(r.gastos)}`, 20, y);
+        y += 5;
+        pdf.setFont(undefined, 'bold');
+        pdf.text(`TOTAL TITULAR: ${formatearPesos(r.totalTitular)}`, 20, y);
+        y += 8;
+        
+        // ===== DESGLOSE CHOFER =====
+        pdf.setFont(undefined, 'bold');
+        pdf.text('DESGLOSE CHOFER', 20, y);
+        y += 6;
+        
+        pdf.setFont(undefined, 'normal');
+        pdf.text(`Base 50%: ${formatearPesos(r.base50)}`, 20, y);
+        y += 5;
+        pdf.text(`Frecuencia: - ${formatearPesos(r.frecuencia)}`, 20, y);
+        y += 5;
+        pdf.setFont(undefined, 'bold');
+        pdf.text(`TOTAL CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
+        y += 10;
+        
+        // ===== NOTAS U OBSERVACIONES =====
+        if (r.notas && r.notas.trim() !== '') {
+            pdf.setFont(undefined, 'bold');
+            pdf.text('NOTAS U OBSERVACIONES', 20, y);
+            y += 6;
+            pdf.setFont(undefined, 'normal');
+            pdf.setFontSize(9);
+            // Dividir el texto en líneas para que no se salga de la página
+            const notasLines = pdf.splitTextToSize(r.notas, 170);
+            pdf.text(notasLines, 20, y);
+            y += (notasLines.length * 5) + 8;
+        }
+        
+        // ===== FÓRMULA EXPLICATIVA (al final del PDF) =====
+        pdf.setFontSize(8);
+        pdf.setFont(undefined, 'italic');
+        pdf.setTextColor(100, 100, 100);
+        pdf.text('Formula aplicada: (Recaudacion - Combustible) / 2 = Base 50%', 20, y);
+        y += 4;
+        pdf.text('Titular = Base + Frecuencia - (Tarjeta/QR + Voucher + Token + Cta Cte + Gastos)', 20, y);
+        y += 4;
+        pdf.text('Chofer = Base - Frecuencia', 20, y);
+        
+        // Guardar el PDF con nombre dinámico (fecha + nombre del chofer)
         pdf.save(`cierre_turno_${r.fecha}_${r.chofer || 'sin_nombre'}.pdf`);
     }
 
-    // --------------------------------------------------------------
+    // =============================================
     // GENERAR MENSAJE DE TEXTO PARA WHATSAPP Y EMAIL
-    // --------------------------------------------------------------
+    // =============================================
     function generarMensajeTexto() {
         const r = calcularTodo();
-        return `CIERRE DE TURNO - REMIS
-Fecha: ${r.fecha}
+        
+        // Construir el mensaje paso a paso
+        let mensaje = `CIERRE DE TURNO
+Fecha: ${r.fechaFormateada}
 Chofer: ${r.chofer}
 Licencia: ${r.licencia}
 
@@ -819,20 +934,29 @@ CHOFER: ${formatearPesos(r.totalChofer)}
 PROMEDIOS:
 Por viaje: ${formatearPesos(r.promedioViaje)}
 Por kilometro: ${formatearPesos(r.promedioKm)}`;
+        
+        // Agregar notas si existen
+        if (r.notas && r.notas.trim() !== '') {
+            mensaje += `\n\nNOTAS:\n${r.notas}`;
+        }
+        
+        return mensaje;
     }
 
-    // --------------------------------------------------------------
-    // ENVIAR WHATSAPP (abre la app/web con el mensaje listo)
-    // --------------------------------------------------------------
+    // =============================================
+    // ENVIAR POR WHATSAPP
+    // Abre WhatsApp Web o la app con el mensaje listo
+    // =============================================
     function enviarWhatsapp() {
         const mensaje = generarMensajeTexto();
         const textoCodificado = encodeURIComponent(mensaje);
         window.open(`https://wa.me/?text=${textoCodificado}`, '_blank');
     }
 
-    // --------------------------------------------------------------
-    // ENVIAR EMAIL (abre el cliente de correo predeterminado)
-    // --------------------------------------------------------------
+    // =============================================
+    // ENVIAR POR EMAIL
+    // Abre el cliente de correo predeterminado
+    // =============================================
     function enviarEmail() {
         const r = calcularTodo();
         const mensaje = generarMensajeTexto();
@@ -842,42 +966,37 @@ Por kilometro: ${formatearPesos(r.promedioKm)}`;
         window.open(`mailto:?subject=${asuntoCodificado}&body=${cuerpoCodificado}`, '_blank');
     }
 
-    // --------------------------------------------------------------
-    // TOGGLE DEL DESPLEGABLE (mostrar/ocultar detalle)
-    // --------------------------------------------------------------
-    const btnDetalle = document.getElementById('btnDetalle');
-    const detalleContent = document.getElementById('detalleContent');
-    
-    btnDetalle.addEventListener('click', () => {
-        detalleContent.classList.toggle('mostrar');
-        if (detalleContent.classList.contains('mostrar')) {
-            btnDetalle.textContent = 'OCULTAR DETALLE';
-        } else {
-            btnDetalle.textContent = 'CONSULTAR DETALLE';
-        }
-    });
-
-    // --------------------------------------------------------------
+    // =============================================
     // ASIGNAR EVENTOS A LOS BOTONES
-    // --------------------------------------------------------------
+    // =============================================
     document.getElementById('exportarPDF').addEventListener('click', exportarPDF);
     document.getElementById('enviarWhatsapp').addEventListener('click', enviarWhatsapp);
     document.getElementById('enviarEmail').addEventListener('click', enviarEmail);
 
-    // --------------------------------------------------------------
-    // ACTUALIZAR AUTOMÁTICAMENTE AL ESCRIBIR EN CUALQUIER INPUT
-    // --------------------------------------------------------------
-    const inputs = [
-        recaudacionInput, combustibleInput, frecuenciaInput, 
-        tarjetaQrInput, voucherInput, tokenInput, 
-        cuentaCorrienteInput, gastosInput, viajesInput, 
-        kilometrosInput, fechaInput, licenciaInput, choferInput
+    // =============================================
+    // ACTIVAR NAVEGACIÓN CON TECLA ENTER
+    // =============================================
+    setupEnterNavigation();
+
+    // =============================================
+    // ACTUALIZAR AUTOMÁTICAMENTE AL ESCRIBIR
+    // Escucha cambios en todos los campos de entrada
+    // =============================================
+    const todosLosCampos = [
+        recaudacionInput, combustibleInput, frecuenciaInput,
+        tarjetaQrInput, voucherInput, tokenInput,
+        cuentaCorrienteInput, gastosInput, viajesInput,
+        kilometrosInput, fechaInput, licenciaInput,
+        choferInput, notasTextarea
     ];
-    inputs.forEach(input => {
-        input.addEventListener('input', actualizarPantalla);
+    
+    todosLosCampos.forEach(campo => {
+        campo.addEventListener('input', actualizarPantalla);
     });
 
-    // Ejecutar la primera vez para mostrar valores iniciales
+    // =============================================
+    // EJECUTAR AL INICIAR (para mostrar valores iniciales)
+    // =============================================
     actualizarPantalla();
 </script>
 
