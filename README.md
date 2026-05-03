@@ -2,18 +2,26 @@
 
 # 🚖 Cierre de Turno
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue)
-![Estado](https://img.shields.io/badge/estado-estable-brightgreen)
+![Version](https://img.shields.io/badge/version-1.1.0-blue)
+![Estado](https://img.shields.io/badge/estado-activo-brightgreen)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
 ![jsPDF](https://img.shields.io/badge/jsPDF-2.5.1-red)
-![Sin dependencias](https://img.shields.io/badge/dependencias-0-brightgreen)
-![Tamaño](https://img.shields.io/github/repo-size/psbella/Cierre-remis)
-![Licencia](https://img.shields.io/badge/licencia-MIT-green)
+![Dependencias](https://img.shields.io/badge/dependencias-1-blue)
+![Tamaño](https://img.shields.io/github/repo-size/psbella/cierre_remis)
+[![Licencia](https://img.shields.io/badge/licencia-MIT-green)](https://opensource.org/licenses/MIT)
 
 </div>
 Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula automáticamente la división de ganancias entre el titular y el chofer según las reglas del negocio.
+
+## Versiones disponibles
+
+| Versión | Tipo | Enlace |
+|---------|------|--------|
+| v1.0.0 | Monolítica (un solo archivo) | [https://psbella.github.io/cierre_remis/](https://psbella.github.io/cierre_remis/) |
+| v1.1.0 | Modular (archivos separados) | [https://psbella.github.io/cierre_remis/v1.1.0/](https://psbella.github.io/cierre_remis/v1.1.0/) |
+
 
 ## 📱 Características
 
@@ -84,10 +92,16 @@ Se puede convertir a APK usando servicios como:
 
 ## 📂 Estructura del proyecto
 
-```Cierre-remis/
-├── index.html # Aplicación principal
-└── README.md # Este archivo
-```
+```cierre_remis/v1.1.0/
+├── index.html
+├── css/
+│   └── styles.css
+└── js/
+    ├── utils.js
+    ├── calculations.js
+    ├── pdf.js
+    ├── share.js
+    └── main.js```
 
 
 ## 🖥️ Navegación con Enter (PC)
