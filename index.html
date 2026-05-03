@@ -3,7 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23e74c3c'/%3E%3Ctext x='50' y='72' font-size='45' text-anchor='middle' fill='white' font-family='monospace'%3E%3C/%3E%3C/text%3E%3C/svg%3E">
+    
     <title>Cierre de Turno</title>
+    
     <style>
         /* ============================================= */
         /* ESTILOS GENERALES                             */
@@ -31,7 +36,7 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* Títulos */
+        /* Titulos */
         h1 {
             font-size: 1.5rem;
             text-align: center;
@@ -88,24 +93,20 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* En celulares, muestra teclado numérico */
         input[type="number"] {
             inputmode: numeric;
         }
 
-        /* Área de texto con altura redimensionable */
         textarea {
             resize: vertical;
             min-height: 60px;
         }
 
-        /* Efecto al enfocar un campo */
         input:focus, textarea:focus {
             outline: none;
             border-color: #3498db;
         }
 
-        /* Dos columnas para pantallas más grandes */
         .fila-2 {
             display: flex;
             gap: 12px;
@@ -116,10 +117,7 @@
             flex: 1;
         }
 
-        /* ============================================= */
-        /* RESULTADOS PRINCIPALES (TITULAR Y CHOFER)      */
-        /* ============================================= */
-        
+        /* Resultados principales */
         .resultados {
             margin-top: 20px;
             background: #ecf0f1;
@@ -155,7 +153,6 @@
             font-weight: bold;
         }
 
-        /* Estadísticas (promedios) */
         .estadistica {
             background: #fff8e1;
             border-radius: 8px;
@@ -170,10 +167,7 @@
             font-size: 0.8rem;
         }
 
-        /* ============================================= */
-        /* BOTONERA CON 3 BOTONES (PDF, WHATSAPP, EMAIL) */
-        /* ============================================= */
-        
+        /* Botonera con 3 botones */
         .botonera {
             display: flex;
             gap: 10px;
@@ -200,10 +194,7 @@
             background: #2980b9;
         }
 
-        /* ============================================= */
-        /* DETALLE DE CUENTA (SIEMPRE VISIBLE)           */
-        /* ============================================= */
-        
+        /* Detalle siempre visible */
         .detalle-content {
             background: white;
             border-radius: 12px;
@@ -255,10 +246,7 @@
             margin: 8px 0;
         }
 
-        /* ============================================= */
-        /* CAMPO DE NOTAS                                */
-        /* ============================================= */
-        
+        /* Campo de notas */
         .notas {
             margin: 16px 0;
         }
@@ -267,10 +255,7 @@
             background: #fffef7;
         }
 
-        /* ============================================= */
-        /* FOOTER                                        */
-        /* ============================================= */
-        
+        /* Footer */
         .footer {
             margin-top: 20px;
             padding-top: 10px;
@@ -290,10 +275,7 @@
             text-decoration: underline;
         }
 
-        /* ============================================= */
-        /* RESPONSIVE PARA CELULARES                     */
-        /* ============================================= */
-        
+        /* Responsive para celulares */
         @media (max-width: 500px) {
             .container {
                 padding: 16px;
@@ -307,7 +289,6 @@
         }
     </style>
     
-    <!-- Librería jsPDF para generar PDFs livianos (sin convertir a imagen) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
@@ -316,9 +297,9 @@
     <h1>CIERRE DE TURNO</h1>
     <div class="subtitulo">Liquidacion para chofer y titular</div>
 
-    <!-- ============================================= -->
-    <!-- SECCION 1: DATOS DEL TURNO                     -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- DATOS DEL TURNO                           -->
+    <!-- ========================================= -->
     <div class="seccion">
         <h3>DATOS DEL TURNO</h3>
         <div class="fila-2">
@@ -337,13 +318,12 @@
         </div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- SECCION 2: MOVIMIENTOS DEL TURNO               -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- MOVIMIENTOS DEL TURNO                     -->
+    <!-- ========================================= -->
     <div class="seccion">
         <h3>MOVIMIENTOS DEL TURNO</h3>
 
-        <!-- Fila: Viajes y Kilometros -->
         <div class="fila-2">
             <div class="campo">
                 <label>Cantidad de viajes</label>
@@ -355,7 +335,6 @@
             </div>
         </div>
 
-        <!-- Recaudacion y Combustible (cada uno en su fila completa) -->
         <div class="campo">
             <label>Recaudacion</label>
             <input type="number" id="recaudacion" placeholder="" step="any" inputmode="numeric">
@@ -366,7 +345,6 @@
             <input type="number" id="combustible" placeholder="" step="any" inputmode="numeric">
         </div>
 
-        <!-- Fila: Frecuencia y Tarjeta/QR -->
         <div class="fila-2">
             <div class="campo">
                 <label>Frecuencia</label>
@@ -378,7 +356,6 @@
             </div>
         </div>
 
-        <!-- Fila: Voucher y Token -->
         <div class="fila-2">
             <div class="campo">
                 <label>Voucher</label>
@@ -390,7 +367,6 @@
             </div>
         </div>
 
-        <!-- Fila: Cuenta Corriente y Gastos -->
         <div class="fila-2">
             <div class="campo">
                 <label>Cuenta Corriente</label>
@@ -403,9 +379,9 @@
         </div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- RESULTADOS PRINCIPALES (siempre visibles)      -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- RESULTADOS PRINCIPALES                    -->
+    <!-- ========================================= -->
     <div class="resultados">
         <div class="resultado-item">
             <strong class="titular">TITULAR</strong>
@@ -416,7 +392,6 @@
             <span class="total-numero chofer" id="totalChofer">$ 0</span>
         </div>
 
-        <!-- Promedios -->
         <div class="estadistica">
             <div class="estadistica-item">
                 <span>Promedio por viaje</span>
@@ -429,20 +404,19 @@
         </div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- BOTONERA CON 3 BOTONES (PDF, WHATSAPP, EMAIL) -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- BOTONERA (PDF, WHATSAPP, EMAIL)           -->
+    <!-- ========================================= -->
     <div class="botonera">
         <button id="exportarPDF">PDF</button>
         <button id="enviarWhatsapp">WHATSAPP</button>
         <button id="enviarEmail">EMAIL</button>
     </div>
 
-    <!-- ============================================= -->
-    <!-- DETALLE DE CUENTA (SIEMPRE VISIBLE)            -->
-    /* ============================================= */
+    <!-- ========================================= -->
+    <!-- DETALLE DE CUENTA (SIEMPRE VISIBLE)       -->
+    <!-- ========================================= -->
     <div class="detalle-content">
-        <!-- Sección TITULAR -->
         <div style="font-weight: bold; margin-bottom: 6px; color: #27ae60;">TITULAR</div>
         <div class="detalle-item">
             <span>Total (Recaudacion)</span>
@@ -493,10 +467,8 @@
             <strong id="detTotalTitular">$ 0</strong>
         </div>
 
-        <!-- Separador entre TITULAR y CHOFER -->
         <div class="separador"></div>
 
-        <!-- Sección CHOFER -->
         <div style="font-weight: bold; margin-bottom: 6px; margin-top: 4px; color: #2980b9;">CHOFER</div>
         <div class="detalle-item">
             <span>Base 50%</span>
@@ -511,35 +483,35 @@
             <strong id="detTotalChofer">$ 0</strong>
         </div>
 
-        <!-- Operación completa explicada -->
         <div class="detalle-operacion" id="detOperacion"></div>
     </div>
 
-    <!-- ============================================= -->
-    <!-- CAMPO DE NOTAS U OBSERVACIONES                 -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- CAMPO DE NOTAS                            -->
+    <!-- ========================================= -->
     <div class="notas">
         <label>Notas u observaciones</label>
         <textarea id="notas" placeholder="Ej: Llantas presion baja, aceite para el proximo turno, cliente pendiente, etc..."></textarea>
     </div>
 
-    <!-- ============================================= -->
-    <!-- FOOTER                                         -->
-    <!-- ============================================= -->
+    <!-- ========================================= -->
+    <!-- FOOTER                                    -->
+    <!-- ========================================= -->
     <div class="footer">
-        desarrollado por Pablo Bella - <a href="mailto:Pablo.s.bella@gmail.com">Pablo.s.bella@gmail.com</a>
+        Cierre de Turno v1.0.0 | Desarrollado por <a href="mailto:pablo.s.bella@gmail.com">Pablo Bella</a> | 
+        <a href="https://github.com/psbella/Cierre-remis" target="_blank">GitHub</a> | 
+        <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
     </div>
 </div>
 
 <script>
     // =============================================
-    // CONFIGURACIÓN INICIAL Y REFERENCIAS A ELEMENTOS
+    // CONFIGURACION INICIAL Y REFERENCIAS
     // =============================================
     
-    // Obtener la librería jsPDF
     const { jsPDF } = window.jspdf;
     
-    // Elementos de entrada (inputs)
+    // Elementos de entrada
     const recaudacionInput     = document.getElementById('recaudacion');
     const combustibleInput     = document.getElementById('combustible');
     const frecuenciaInput      = document.getElementById('frecuencia');
@@ -555,13 +527,13 @@
     const choferInput          = document.getElementById('choferNombre');
     const notasTextarea        = document.getElementById('notas');
 
-    // Elementos donde se muestran los resultados principales
+    // Resultados
     const totalTitularSpan     = document.getElementById('totalTitular');
     const totalChoferSpan      = document.getElementById('totalChofer');
     const promedioViajeSpan    = document.getElementById('promedioViaje');
     const promedioKmSpan       = document.getElementById('promedioKm');
 
-    // Elementos del detalle para TITULAR
+    // Detalle
     const detTotal             = document.getElementById('detTotal');
     const detCombustible       = document.getElementById('detCombustible');
     const detSubtotal1         = document.getElementById('detSubtotal1');
@@ -574,28 +546,23 @@
     const detCtaCte            = document.getElementById('detCtaCte');
     const detGastos            = document.getElementById('detGastos');
     const detTotalTitular      = document.getElementById('detTotalTitular');
-
-    // Elementos del detalle para CHOFER
     const detChoferBase        = document.getElementById('detChoferBase');
     const detChoferFrecuencia  = document.getElementById('detChoferFrecuencia');
     const detTotalChofer       = document.getElementById('detTotalChofer');
     const detOperacion         = document.getElementById('detOperacion');
 
     // =============================================
-    // FUNCIONES AUXILIARES DE FORMATEO
+    // FUNCIONES DE FORMATEO
     // =============================================
     
-    // Formatea un número como pesos argentinos (sin centavos)
     function formatearPesos(valor) {
         return '$ ' + valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
 
-    // Formatea un número sin símbolo de pesos (para cantidades como viajes, km)
     function formatearNumero(valor) {
         return valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
     }
 
-    // Convierte fecha ISO (YYYY-MM-DD) a formato DD/MM/AAAA
     function formatearFechaDDMMAAAA(fechaISO) {
         if (!fechaISO) return '';
         const partes = fechaISO.split('-');
@@ -604,18 +571,15 @@
     }
 
     // =============================================
-    // OBTENER DATOS DE LOS INPUTS
+    // OBTENER DATOS
     // =============================================
+    
     function obtenerDatos() {
         return {
-            // Datos del turno
             fecha:          fechaInput.value,
             fechaFormateada: formatearFechaDDMMAAAA(fechaInput.value),
             licencia:       licenciaInput.value || '',
             chofer:         choferInput.value || '',
-            notas:          notasTextarea.value || '',
-            
-            // Movimientos
             viajes:         parseFloat(viajesInput.value) || 0,
             kilometros:     parseFloat(kilometrosInput.value) || 0,
             recaudacion:    parseFloat(recaudacionInput.value) || 0,
@@ -625,70 +589,42 @@
             voucher:        parseFloat(voucherInput.value) || 0,
             token:          parseFloat(tokenInput.value) || 0,
             cuentaCorriente: parseFloat(cuentaCorrienteInput.value) || 0,
-            gastos:         parseFloat(gastosInput.value) || 0
+            gastos:         parseFloat(gastosInput.value) || 0,
+            notas:          notasTextarea.value || ''
         };
     }
 
     // =============================================
-    // CÁLCULO SEGÚN LA LÓGICA DEL NEGOCIO
+    // CALCULO SEGUN LOGICA DEL NEGOCIO
     // =============================================
-    // Las fórmulas son:
-    // - Base 50% = (Recaudación - Combustible) / 2
-    // - TOTAL TITULAR = Base 50% + Frecuencia - (Tarjeta/QR + Voucher + Token + Cuenta Corriente + Gastos)
-    // - TOTAL CHOFER = Base 50% - Frecuencia
-    // - Promedio por viaje = Recaudación / Cantidad de viajes
-    // - Promedio por kilómetro = Recaudación / Kilómetros recorridos
-    // =============================================
+    
     function calcularTodo() {
         const d = obtenerDatos();
-        
-        // Paso 1: Recaudación - Combustible
         const despuesCombustible = d.recaudacion - d.combustible;
-        
-        // Paso 2: Divido por 2 (base 50/50)
         const base50 = despuesCombustible / 2;
-        
-        // Paso 3: Suma de descuentos que afectan SOLO al titular
         const descuentosTitular = d.tarjetaQr + d.voucher + d.token + d.cuentaCorriente + d.gastos;
-        
-        // Paso 4: TOTAL TITULAR
         const totalTitular = base50 + d.frecuencia - descuentosTitular;
-        
-        // Paso 5: TOTAL CHOFER
         const totalChofer = base50 - d.frecuencia;
         
-        // Promedios (solo si los valores son mayores a cero)
-        let promedioViaje = 0;
-        let promedioKm = 0;
+        let promedioViaje = 0, promedioKm = 0;
         if (d.viajes > 0) promedioViaje = d.recaudacion / d.viajes;
         if (d.kilometros > 0) promedioKm = d.recaudacion / d.kilometros;
         
-        return {
-            totalTitular,
-            totalChofer,
-            promedioViaje,
-            promedioKm,
-            base50,
-            despuesCombustible,
-            descuentosTitular,
-            ...d
-        };
+        return { totalTitular, totalChofer, promedioViaje, promedioKm, base50, despuesCombustible, ...d };
     }
 
     // =============================================
-    // ACTUALIZAR PANTALLLA COMPLETA
-    // Se ejecuta automáticamente al escribir en cualquier input
+    // ACTUALIZAR PANTALLA
     // =============================================
+    
     function actualizarPantalla() {
         const r = calcularTodo();
         
-        // Actualizar resultados principales
         totalTitularSpan.textContent  = formatearPesos(r.totalTitular);
         totalChoferSpan.textContent   = formatearPesos(r.totalChofer);
         promedioViajeSpan.textContent = formatearPesos(r.promedioViaje);
         promedioKmSpan.textContent    = formatearPesos(r.promedioKm);
         
-        // Actualizar detalle TITULAR
         detTotal.textContent          = formatearPesos(r.recaudacion);
         detCombustible.textContent    = formatearPesos(r.combustible);
         detSubtotal1.textContent      = formatearPesos(r.despuesCombustible);
@@ -701,34 +637,24 @@
         detCtaCte.textContent         = formatearPesos(r.cuentaCorriente);
         detGastos.textContent         = formatearPesos(r.gastos);
         detTotalTitular.textContent   = formatearPesos(r.totalTitular);
-        
-        // Actualizar detalle CHOFER
         detChoferBase.textContent     = formatearPesos(r.base50);
         detChoferFrecuencia.textContent = formatearPesos(r.frecuencia);
         detTotalChofer.textContent    = formatearPesos(r.totalChofer);
         
-        // Mostrar operación desglosada (explicación paso a paso)
         detOperacion.innerHTML = `TITULAR: ${formatearPesos(r.recaudacion)} - ${formatearPesos(r.combustible)} = ${formatearPesos(r.despuesCombustible)} / 2 = ${formatearPesos(r.base50)} + ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.base50 + r.frecuencia)} - (${formatearPesos(r.tarjetaQr)} + ${formatearPesos(r.voucher)} + ${formatearPesos(r.token)} + ${formatearPesos(r.cuentaCorriente)} + ${formatearPesos(r.gastos)}) = ${formatearPesos(r.totalTitular)}<br><br>CHOFER: ${formatearPesos(r.base50)} - ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.totalChofer)}`;
     }
 
     // =============================================
-    // NAVEGACIÓN CON TECLA ENTER (solo PC)
-    // Permite pasar al siguiente campo presionando Enter
+    // NAVEGACION CON TECLA ENTER (PC)
     // =============================================
+    
     function setupEnterNavigation() {
-        // Seleccionar todos los campos de entrada (inputs y textarea)
         const campos = document.querySelectorAll('input, textarea');
-        
         campos.forEach((campo, index) => {
             campo.addEventListener('keypress', (e) => {
-                // Si la tecla presionada es Enter
                 if (e.key === 'Enter') {
-                    e.preventDefault(); // Evita que el formulario se envíe o recargue
-                    
-                    // Obtener el siguiente campo
+                    e.preventDefault();
                     const siguienteCampo = campos[index + 1];
-                    
-                    // Si existe, enfocarlo y seleccionar su contenido
                     if (siguienteCampo) {
                         siguienteCampo.focus();
                         siguienteCampo.select();
@@ -739,12 +665,12 @@
     }
 
     // =============================================
-    // EXPORTAR A PDF (usando jsPDF, formato tabla)
+    // EXPORTAR A PDF
     // =============================================
+    
     function exportarPDF() {
         const r = calcularTodo();
         
-        // Crear nuevo documento PDF
         const pdf = new jsPDF({
             orientation: 'portrait',
             unit: 'mm',
@@ -753,7 +679,6 @@
         
         pdf.setFont('helvetica');
         
-        // ===== TÍTULO PRINCIPAL =====
         pdf.setFontSize(18);
         pdf.setFont(undefined, 'bold');
         pdf.text('CIERRE DE TURNO', 105, 20, { align: 'center' });
@@ -762,9 +687,8 @@
         pdf.setFont(undefined, 'normal');
         pdf.text('Liquidacion para chofer y titular', 105, 28, { align: 'center' });
         
-        let y = 40; // Posición vertical actual
+        let y = 40;
         
-        // ===== DATOS DEL TURNO =====
         pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('DATOS DEL TURNO', 20, y);
@@ -779,7 +703,6 @@
         pdf.text(`Chofer: ${r.chofer}`, 20, y);
         y += 12;
         
-        // ===== MOVIMIENTOS =====
         pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('MOVIMIENTOS', 20, y);
@@ -803,7 +726,6 @@
         pdf.text(`Gastos: ${formatearPesos(r.gastos)}`, 120, y);
         y += 12;
         
-        // ===== RESULTADOS PRINCIPALES =====
         pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('RESULTADOS', 20, y);
@@ -815,7 +737,6 @@
         pdf.text(`CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
         y += 12;
         
-        // ===== PROMEDIOS =====
         pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('PROMEDIOS', 20, y);
@@ -828,7 +749,6 @@
         pdf.text(`Promedio por kilometro: ${formatearPesos(r.promedioKm)}`, 20, y);
         y += 12;
         
-        // ===== DESGLOSE TITULAR =====
         pdf.setFontSize(11);
         pdf.setFont(undefined, 'bold');
         pdf.text('DESGLOSE TITULAR', 20, y);
@@ -862,7 +782,6 @@
         pdf.text(`TOTAL TITULAR: ${formatearPesos(r.totalTitular)}`, 20, y);
         y += 8;
         
-        // ===== DESGLOSE CHOFER =====
         pdf.setFont(undefined, 'bold');
         pdf.text('DESGLOSE CHOFER', 20, y);
         y += 6;
@@ -876,20 +795,17 @@
         pdf.text(`TOTAL CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
         y += 10;
         
-        // ===== NOTAS U OBSERVACIONES =====
         if (r.notas && r.notas.trim() !== '') {
             pdf.setFont(undefined, 'bold');
             pdf.text('NOTAS U OBSERVACIONES', 20, y);
             y += 6;
             pdf.setFont(undefined, 'normal');
             pdf.setFontSize(9);
-            // Dividir el texto en líneas para que no se salga de la página
             const notasLines = pdf.splitTextToSize(r.notas, 170);
             pdf.text(notasLines, 20, y);
             y += (notasLines.length * 5) + 8;
         }
         
-        // ===== FÓRMULA EXPLICATIVA (al final del PDF) =====
         pdf.setFontSize(8);
         pdf.setFont(undefined, 'italic');
         pdf.setTextColor(100, 100, 100);
@@ -899,17 +815,15 @@
         y += 4;
         pdf.text('Chofer = Base - Frecuencia', 20, y);
         
-        // Guardar el PDF con nombre dinámico (fecha + nombre del chofer)
         pdf.save(`cierre_turno_${r.fecha}_${r.chofer || 'sin_nombre'}.pdf`);
     }
 
     // =============================================
-    // GENERAR MENSAJE DE TEXTO PARA WHATSAPP Y EMAIL
+    // GENERAR MENSAJE PARA WHATSAPP Y EMAIL
     // =============================================
+    
     function generarMensajeTexto() {
         const r = calcularTodo();
-        
-        // Construir el mensaje paso a paso
         let mensaje = `CIERRE DE TURNO
 Fecha: ${r.fechaFormateada}
 Chofer: ${r.chofer}
@@ -935,7 +849,6 @@ PROMEDIOS:
 Por viaje: ${formatearPesos(r.promedioViaje)}
 Por kilometro: ${formatearPesos(r.promedioKm)}`;
         
-        // Agregar notas si existen
         if (r.notas && r.notas.trim() !== '') {
             mensaje += `\n\nNOTAS:\n${r.notas}`;
         }
@@ -944,44 +857,30 @@ Por kilometro: ${formatearPesos(r.promedioKm)}`;
     }
 
     // =============================================
-    // ENVIAR POR WHATSAPP
-    // Abre WhatsApp Web o la app con el mensaje listo
+    // ENVIAR WHATSAPP Y EMAIL
     // =============================================
+    
     function enviarWhatsapp() {
         const mensaje = generarMensajeTexto();
-        const textoCodificado = encodeURIComponent(mensaje);
-        window.open(`https://wa.me/?text=${textoCodificado}`, '_blank');
+        window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
     }
 
-    // =============================================
-    // ENVIAR POR EMAIL
-    // Abre el cliente de correo predeterminado
-    // =============================================
     function enviarEmail() {
         const r = calcularTodo();
         const mensaje = generarMensajeTexto();
-        const asunto = `Cierre de turno - ${r.fecha} - ${r.chofer}`;
-        const asuntoCodificado = encodeURIComponent(asunto);
-        const cuerpoCodificado = encodeURIComponent(mensaje);
-        window.open(`mailto:?subject=${asuntoCodificado}&body=${cuerpoCodificado}`, '_blank');
+        window.open(`mailto:?subject=${encodeURIComponent(`Cierre de turno - ${r.fecha} - ${r.chofer}`)}&body=${encodeURIComponent(mensaje)}`, '_blank');
     }
 
     // =============================================
-    // ASIGNAR EVENTOS A LOS BOTONES
+    // EVENTOS
     // =============================================
+    
     document.getElementById('exportarPDF').addEventListener('click', exportarPDF);
     document.getElementById('enviarWhatsapp').addEventListener('click', enviarWhatsapp);
     document.getElementById('enviarEmail').addEventListener('click', enviarEmail);
 
-    // =============================================
-    // ACTIVAR NAVEGACIÓN CON TECLA ENTER
-    // =============================================
     setupEnterNavigation();
 
-    // =============================================
-    // ACTUALIZAR AUTOMÁTICAMENTE AL ESCRIBIR
-    // Escucha cambios en todos los campos de entrada
-    // =============================================
     const todosLosCampos = [
         recaudacionInput, combustibleInput, frecuenciaInput,
         tarjetaQrInput, voucherInput, tokenInput,
@@ -994,9 +893,6 @@ Por kilometro: ${formatearPesos(r.promedioKm)}`;
         campo.addEventListener('input', actualizarPantalla);
     });
 
-    // =============================================
-    // EJECUTAR AL INICIAR (para mostrar valores iniciales)
-    // =============================================
     actualizarPantalla();
 </script>
 
