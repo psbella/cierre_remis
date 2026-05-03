@@ -1,5 +1,15 @@
-# Cierre de Turno
+<div align="center">
 
+# 🚖 Cierre de Turno
+
+![Versión](https://img.shields.io/badge/versión-1.0.0-blue)
+![Estado](https://img.shields.io/badge/estado-estable-brightgreen)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+![jsPDF](https://img.shields.io/badge/jsPDF-2.5.1-red)
+
+</div>
 Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula automáticamente la división de ganancias entre el titular y el chofer según las reglas del negocio.
 
 ## 📱 Características
