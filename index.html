@@ -26,7 +26,6 @@
             padding: 20px;
         }
 
-        /* Contenedor principal de la app */
         .container {
             max-width: 650px;
             margin: 0 auto;
@@ -36,7 +35,6 @@
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
-        /* Titulos */
         h1 {
             font-size: 1.5rem;
             text-align: center;
@@ -53,7 +51,6 @@
             padding-bottom: 10px;
         }
 
-        /* Secciones con fondo gris claro */
         .seccion {
             background: #f5f5f5;
             border-radius: 12px;
@@ -69,7 +66,6 @@
             padding-left: 10px;
         }
 
-        /* Campos de entrada */
         .campo {
             margin-bottom: 12px;
         }
@@ -117,7 +113,6 @@
             flex: 1;
         }
 
-        /* Resultados principales */
         .resultados {
             margin-top: 20px;
             background: #ecf0f1;
@@ -167,7 +162,6 @@
             font-size: 0.8rem;
         }
 
-        /* Botonera con 3 botones */
         .botonera {
             display: flex;
             gap: 10px;
@@ -194,7 +188,6 @@
             background: #2980b9;
         }
 
-        /* Detalle siempre visible */
         .detalle-content {
             background: white;
             border-radius: 12px;
@@ -246,15 +239,6 @@
             margin: 8px 0;
         }
 
-        /* Campo de notas */
-        .notas {
-            margin: 16px 0;
-        }
-
-        .notas textarea {
-            background: #fffef7;
-        }
-
         /* Footer */
         .footer {
             margin-top: 20px;
@@ -275,7 +259,6 @@
             text-decoration: underline;
         }
 
-        /* Responsive para celulares */
         @media (max-width: 500px) {
             .container {
                 padding: 16px;
@@ -376,6 +359,12 @@
                 <label>Gastos</label>
                 <input type="number" id="gastos" placeholder="" step="any" inputmode="numeric">
             </div>
+        </div>
+
+        <!-- Campo de notas dentro de movimientos -->
+        <div class="campo">
+            <label>Notas u observaciones</label>
+            <textarea id="notas" placeholder="Ej: Llantas presion baja, aceite para el proximo turno, cliente pendiente, etc..."></textarea>
         </div>
     </div>
 
@@ -487,14 +476,6 @@
     </div>
 
     <!-- ========================================= -->
-    <!-- CAMPO DE NOTAS                            -->
-    <!-- ========================================= -->
-    <div class="notas">
-        <label>Notas u observaciones</label>
-        <textarea id="notas" placeholder="Ej: Llantas presion baja, aceite para el proximo turno, cliente pendiente, etc..."></textarea>
-    </div>
-
-    <!-- ========================================= -->
     <!-- FOOTER                                    -->
     <!-- ========================================= -->
     <div class="footer">
@@ -511,7 +492,6 @@
     
     const { jsPDF } = window.jspdf;
     
-    // Elementos de entrada
     const recaudacionInput     = document.getElementById('recaudacion');
     const combustibleInput     = document.getElementById('combustible');
     const frecuenciaInput      = document.getElementById('frecuencia');
@@ -527,13 +507,11 @@
     const choferInput          = document.getElementById('choferNombre');
     const notasTextarea        = document.getElementById('notas');
 
-    // Resultados
     const totalTitularSpan     = document.getElementById('totalTitular');
     const totalChoferSpan      = document.getElementById('totalChofer');
     const promedioViajeSpan    = document.getElementById('promedioViaje');
     const promedioKmSpan       = document.getElementById('promedioKm');
 
-    // Detalle
     const detTotal             = document.getElementById('detTotal');
     const detCombustible       = document.getElementById('detCombustible');
     const detSubtotal1         = document.getElementById('detSubtotal1');
@@ -856,10 +834,6 @@ Por kilometro: ${formatearPesos(r.promedioKm)}`;
         return mensaje;
     }
 
-    // =============================================
-    // ENVIAR WHATSAPP Y EMAIL
-    // =============================================
-    
     function enviarWhatsapp() {
         const mensaje = generarMensajeTexto();
         window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
