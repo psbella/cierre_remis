@@ -9,269 +9,10 @@
     
     <title>Cierre de Turno</title>
     
-    <style>
-        /* ============================================= */
-        /* ESTILOS GENERALES                             */
-        /* ============================================= */
-        
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #e8e8e8;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 650px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 16px;
-            padding: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            text-align: center;
-            margin-bottom: 5px;
-            color: #2c3e50;
-        }
-
-        .subtitulo {
-            text-align: center;
-            font-size: 0.75rem;
-            color: #7f8c8d;
-            margin-bottom: 20px;
-            border-bottom: 1px solid #ddd;
-            padding-bottom: 10px;
-        }
-
-        .seccion {
-            background: #f5f5f5;
-            border-radius: 12px;
-            padding: 14px;
-            margin-bottom: 16px;
-        }
-
-        .seccion h3 {
-            margin-bottom: 10px;
-            color: #2c3e50;
-            font-size: 0.9rem;
-            border-left: 4px solid #3498db;
-            padding-left: 10px;
-        }
-
-        .campo {
-            margin-bottom: 12px;
-        }
-
-        label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 4px;
-            font-size: 0.8rem;
-            color: #2c3e50;
-        }
-
-        input, textarea {
-            width: 100%;
-            padding: 10px 12px;
-            font-size: 0.95rem;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            background: white;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        input[type="number"] {
-            inputmode: numeric;
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 60px;
-        }
-
-        input:focus, textarea:focus {
-            outline: none;
-            border-color: #3498db;
-        }
-
-        .fila-2 {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .fila-2 .campo {
-            flex: 1;
-        }
-
-        .resultados {
-            margin-top: 20px;
-            background: #ecf0f1;
-            border-radius: 12px;
-            padding: 14px;
-        }
-
-        .resultado-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 8px 0;
-            font-size: 1rem;
-        }
-
-        .resultado-item:first-child {
-            border-bottom: 1px solid #bdc3c7;
-        }
-
-        .titular {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .chofer {
-            color: #2980b9;
-            font-weight: bold;
-            font-size: 1rem;
-        }
-
-        .total-numero {
-            font-size: 1.1rem;
-            font-weight: bold;
-        }
-
-        .estadistica {
-            background: #fff8e1;
-            border-radius: 8px;
-            padding: 8px;
-            margin-top: 10px;
-        }
-
-        .estadistica-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 5px 0;
-            font-size: 0.8rem;
-        }
-
-        .botonera {
-            display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
-            margin: 20px 0 16px 0;
-        }
-
-        .botonera button {
-            flex: 1;
-            padding: 12px 12px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.2s;
-            background: #3498db;
-            color: white;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        .botonera button:active {
-            transform: scale(0.98);
-            background: #2980b9;
-        }
-
-        .detalle-content {
-            background: white;
-            border-radius: 12px;
-            margin-top: 8px;
-            padding: 14px;
-            border: 1px solid #ddd;
-        }
-
-        .detalle-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 6px 0;
-            border-bottom: 1px solid #eee;
-            font-size: 0.85rem;
-        }
-
-        .detalle-item:last-child {
-            border-bottom: none;
-        }
-
-        .detalle-total-titular {
-            color: #27ae60;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .detalle-total-chofer {
-            color: #2980b9;
-            font-weight: bold;
-            font-size: 0.9rem;
-        }
-
-        .detalle-subtotal {
-            font-weight: bold;
-            color: #e67e22;
-        }
-
-        .detalle-operacion {
-            color: #7f8c8d;
-            font-size: 0.7rem;
-            text-align: left;
-            margin-top: 8px;
-            padding-top: 8px;
-            border-top: 1px dashed #ccc;
-        }
-
-        .separador {
-            border-top: 2px solid #ccc;
-            margin: 8px 0;
-        }
-
-        /* Footer */
-        .footer {
-            margin-top: 20px;
-            padding-top: 10px;
-            text-align: center;
-            font-size: 0.65rem;
-            color: #95a5a6;
-            border-top: 1px solid #ecf0f1;
-        }
-
-        .footer a {
-            color: #95a5a6;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            color: #3498db;
-            text-decoration: underline;
-        }
-
-        @media (max-width: 500px) {
-            .container {
-                padding: 16px;
-            }
-            .total-numero {
-                font-size: 1rem;
-            }
-            .botonera {
-                flex-direction: column;
-            }
-        }
-    </style>
+    <!-- Estilos -->
+    <link rel="stylesheet" href="css/styles.css">
     
+    <!-- Librerias externas -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
@@ -280,9 +21,7 @@
     <h1>CIERRE DE TURNO</h1>
     <div class="subtitulo">Liquidacion para chofer y titular</div>
 
-    <!-- ========================================= -->
-    <!-- DATOS DEL TURNO                           -->
-    <!-- ========================================= -->
+    <!-- DATOS DEL TURNO -->
     <div class="seccion">
         <h3>DATOS DEL TURNO</h3>
         <div class="fila-2">
@@ -301,9 +40,7 @@
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- MOVIMIENTOS DEL TURNO                     -->
-    <!-- ========================================= -->
+    <!-- MOVIMIENTOS DEL TURNO -->
     <div class="seccion">
         <h3>MOVIMIENTOS DEL TURNO</h3>
 
@@ -361,16 +98,13 @@
             </div>
         </div>
 
-        <!-- Campo de notas dentro de movimientos -->
         <div class="campo">
             <label>Notas u observaciones</label>
-            <textarea id="notas" placeholder="Ej: Llantas presion baja, aceite para el proximo turno, cliente pendiente, etc..."></textarea>
+            <textarea id="notas" placeholder=""></textarea>
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- RESULTADOS PRINCIPALES                    -->
-    <!-- ========================================= -->
+    <!-- RESULTADOS PRINCIPALES -->
     <div class="resultados">
         <div class="resultado-item">
             <strong class="titular">TITULAR</strong>
@@ -393,18 +127,14 @@
         </div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- BOTONERA (PDF, WHATSAPP, EMAIL)           -->
-    <!-- ========================================= -->
+    <!-- BOTONERA -->
     <div class="botonera">
         <button id="exportarPDF">PDF</button>
         <button id="enviarWhatsapp">WHATSAPP</button>
         <button id="enviarEmail">EMAIL</button>
     </div>
 
-    <!-- ========================================= -->
-    <!-- DETALLE DE CUENTA (SIEMPRE VISIBLE)       -->
-    <!-- ========================================= -->
+    <!-- DETALLE DE CUENTA -->
     <div class="detalle-content">
         <div style="font-weight: bold; margin-bottom: 6px; color: #27ae60;">TITULAR</div>
         <div class="detalle-item">
@@ -475,9 +205,7 @@
         <div class="detalle-operacion" id="detOperacion"></div>
     </div>
 
-    <!-- ========================================= -->
-    <!-- FOOTER                                    -->
-    <!-- ========================================= -->
+    <!-- FOOTER -->
     <div class="footer">
         Cierre de Turno v1.0.0 | Desarrollado por <a href="mailto:pablo.s.bella@gmail.com">Pablo Bella</a> | 
         <a href="https://github.com/psbella/Cierre-remis" target="_blank">GitHub</a> | 
@@ -485,390 +213,12 @@
     </div>
 </div>
 
-<script>
-    // =============================================
-    // CONFIGURACION INICIAL Y REFERENCIAS
-    // =============================================
-    
-    const { jsPDF } = window.jspdf;
-    
-    const recaudacionInput     = document.getElementById('recaudacion');
-    const combustibleInput     = document.getElementById('combustible');
-    const frecuenciaInput      = document.getElementById('frecuencia');
-    const tarjetaQrInput       = document.getElementById('tarjeta_qr');
-    const voucherInput         = document.getElementById('voucher');
-    const tokenInput           = document.getElementById('token');
-    const cuentaCorrienteInput = document.getElementById('cuenta_corriente');
-    const gastosInput          = document.getElementById('gastos');
-    const viajesInput          = document.getElementById('viajes');
-    const kilometrosInput      = document.getElementById('kilometros');
-    const fechaInput           = document.getElementById('fecha');
-    const licenciaInput        = document.getElementById('licencia');
-    const choferInput          = document.getElementById('choferNombre');
-    const notasTextarea        = document.getElementById('notas');
-
-    const totalTitularSpan     = document.getElementById('totalTitular');
-    const totalChoferSpan      = document.getElementById('totalChofer');
-    const promedioViajeSpan    = document.getElementById('promedioViaje');
-    const promedioKmSpan       = document.getElementById('promedioKm');
-
-    const detTotal             = document.getElementById('detTotal');
-    const detCombustible       = document.getElementById('detCombustible');
-    const detSubtotal1         = document.getElementById('detSubtotal1');
-    const det50                = document.getElementById('det50');
-    const detFrecuencia        = document.getElementById('detFrecuencia');
-    const detSubtotal2         = document.getElementById('detSubtotal2');
-    const detTarjeta           = document.getElementById('detTarjeta');
-    const detVoucher           = document.getElementById('detVoucher');
-    const detToken             = document.getElementById('detToken');
-    const detCtaCte            = document.getElementById('detCtaCte');
-    const detGastos            = document.getElementById('detGastos');
-    const detTotalTitular      = document.getElementById('detTotalTitular');
-    const detChoferBase        = document.getElementById('detChoferBase');
-    const detChoferFrecuencia  = document.getElementById('detChoferFrecuencia');
-    const detTotalChofer       = document.getElementById('detTotalChofer');
-    const detOperacion         = document.getElementById('detOperacion');
-
-    // =============================================
-    // FUNCIONES DE FORMATEO
-    // =============================================
-    
-    function formatearPesos(valor) {
-        return '$ ' + valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-    }
-
-    function formatearNumero(valor) {
-        return valor.toLocaleString('es-AR', { minimumFractionDigits: 0, maximumFractionDigits: 0 });
-    }
-
-    function formatearFechaDDMMAAAA(fechaISO) {
-        if (!fechaISO) return '';
-        const partes = fechaISO.split('-');
-        if (partes.length !== 3) return fechaISO;
-        return `${partes[2]}/${partes[1]}/${partes[0]}`;
-    }
-
-    // =============================================
-    // OBTENER DATOS
-    // =============================================
-    
-    function obtenerDatos() {
-        return {
-            fecha:          fechaInput.value,
-            fechaFormateada: formatearFechaDDMMAAAA(fechaInput.value),
-            licencia:       licenciaInput.value || '',
-            chofer:         choferInput.value || '',
-            viajes:         parseFloat(viajesInput.value) || 0,
-            kilometros:     parseFloat(kilometrosInput.value) || 0,
-            recaudacion:    parseFloat(recaudacionInput.value) || 0,
-            combustible:    parseFloat(combustibleInput.value) || 0,
-            frecuencia:     parseFloat(frecuenciaInput.value) || 0,
-            tarjetaQr:      parseFloat(tarjetaQrInput.value) || 0,
-            voucher:        parseFloat(voucherInput.value) || 0,
-            token:          parseFloat(tokenInput.value) || 0,
-            cuentaCorriente: parseFloat(cuentaCorrienteInput.value) || 0,
-            gastos:         parseFloat(gastosInput.value) || 0,
-            notas:          notasTextarea.value || ''
-        };
-    }
-
-    // =============================================
-    // CALCULO SEGUN LOGICA DEL NEGOCIO
-    // =============================================
-    
-    function calcularTodo() {
-        const d = obtenerDatos();
-        const despuesCombustible = d.recaudacion - d.combustible;
-        const base50 = despuesCombustible / 2;
-        const descuentosTitular = d.tarjetaQr + d.voucher + d.token + d.cuentaCorriente + d.gastos;
-        const totalTitular = base50 + d.frecuencia - descuentosTitular;
-        const totalChofer = base50 - d.frecuencia;
-        
-        let promedioViaje = 0, promedioKm = 0;
-        if (d.viajes > 0) promedioViaje = d.recaudacion / d.viajes;
-        if (d.kilometros > 0) promedioKm = d.recaudacion / d.kilometros;
-        
-        return { totalTitular, totalChofer, promedioViaje, promedioKm, base50, despuesCombustible, ...d };
-    }
-
-    // =============================================
-    // ACTUALIZAR PANTALLA
-    // =============================================
-    
-    function actualizarPantalla() {
-        const r = calcularTodo();
-        
-        totalTitularSpan.textContent  = formatearPesos(r.totalTitular);
-        totalChoferSpan.textContent   = formatearPesos(r.totalChofer);
-        promedioViajeSpan.textContent = formatearPesos(r.promedioViaje);
-        promedioKmSpan.textContent    = formatearPesos(r.promedioKm);
-        
-        detTotal.textContent          = formatearPesos(r.recaudacion);
-        detCombustible.textContent    = formatearPesos(r.combustible);
-        detSubtotal1.textContent      = formatearPesos(r.despuesCombustible);
-        det50.textContent             = formatearPesos(r.base50);
-        detFrecuencia.textContent     = formatearPesos(r.frecuencia);
-        detSubtotal2.textContent      = formatearPesos(r.base50 + r.frecuencia);
-        detTarjeta.textContent        = formatearPesos(r.tarjetaQr);
-        detVoucher.textContent        = formatearPesos(r.voucher);
-        detToken.textContent          = formatearPesos(r.token);
-        detCtaCte.textContent         = formatearPesos(r.cuentaCorriente);
-        detGastos.textContent         = formatearPesos(r.gastos);
-        detTotalTitular.textContent   = formatearPesos(r.totalTitular);
-        detChoferBase.textContent     = formatearPesos(r.base50);
-        detChoferFrecuencia.textContent = formatearPesos(r.frecuencia);
-        detTotalChofer.textContent    = formatearPesos(r.totalChofer);
-        
-        detOperacion.innerHTML = `TITULAR: ${formatearPesos(r.recaudacion)} - ${formatearPesos(r.combustible)} = ${formatearPesos(r.despuesCombustible)} / 2 = ${formatearPesos(r.base50)} + ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.base50 + r.frecuencia)} - (${formatearPesos(r.tarjetaQr)} + ${formatearPesos(r.voucher)} + ${formatearPesos(r.token)} + ${formatearPesos(r.cuentaCorriente)} + ${formatearPesos(r.gastos)}) = ${formatearPesos(r.totalTitular)}<br><br>CHOFER: ${formatearPesos(r.base50)} - ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.totalChofer)}`;
-    }
-
-    // =============================================
-    // NAVEGACION CON TECLA ENTER (PC)
-    // =============================================
-    
-    function setupEnterNavigation() {
-        const campos = document.querySelectorAll('input, textarea');
-        campos.forEach((campo, index) => {
-            campo.addEventListener('keypress', (e) => {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    const siguienteCampo = campos[index + 1];
-                    if (siguienteCampo) {
-                        siguienteCampo.focus();
-                        siguienteCampo.select();
-                    }
-                }
-            });
-        });
-    }
-
-    // =============================================
-    // EXPORTAR A PDF
-    // =============================================
-    
-    function exportarPDF() {
-        const r = calcularTodo();
-        
-        const pdf = new jsPDF({
-            orientation: 'portrait',
-            unit: 'mm',
-            format: 'a4'
-        });
-        
-        pdf.setFont('helvetica');
-        
-        pdf.setFontSize(18);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('CIERRE DE TURNO', 105, 20, { align: 'center' });
-        
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'normal');
-        pdf.text('Liquidacion para chofer y titular', 105, 28, { align: 'center' });
-        
-        let y = 40;
-        
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('DATOS DEL TURNO', 20, y);
-        y += 6;
-        
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'normal');
-        pdf.text(`Fecha: ${r.fechaFormateada}`, 20, y);
-        y += 6;
-        pdf.text(`Licencia: ${r.licencia}`, 20, y);
-        y += 6;
-        pdf.text(`Chofer: ${r.chofer}`, 20, y);
-        y += 12;
-        
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('MOVIMIENTOS', 20, y);
-        y += 6;
-        
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'normal');
-        pdf.text(`Cantidad de viajes: ${formatearNumero(r.viajes)}`, 20, y);
-        pdf.text(`Kilometros recorridos: ${formatearNumero(r.kilometros)}`, 120, y);
-        y += 6;
-        pdf.text(`Recaudacion: ${formatearPesos(r.recaudacion)}`, 20, y);
-        pdf.text(`Combustible: ${formatearPesos(r.combustible)}`, 120, y);
-        y += 6;
-        pdf.text(`Frecuencia: ${formatearPesos(r.frecuencia)}`, 20, y);
-        pdf.text(`Tarjeta / QR: ${formatearPesos(r.tarjetaQr)}`, 120, y);
-        y += 6;
-        pdf.text(`Voucher: ${formatearPesos(r.voucher)}`, 20, y);
-        pdf.text(`Token: ${formatearPesos(r.token)}`, 120, y);
-        y += 6;
-        pdf.text(`Cuenta Corriente: ${formatearPesos(r.cuentaCorriente)}`, 20, y);
-        pdf.text(`Gastos: ${formatearPesos(r.gastos)}`, 120, y);
-        y += 12;
-        
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('RESULTADOS', 20, y);
-        y += 6;
-        
-        pdf.setFontSize(11);
-        pdf.text(`TITULAR: ${formatearPesos(r.totalTitular)}`, 20, y);
-        y += 7;
-        pdf.text(`CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
-        y += 12;
-        
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('PROMEDIOS', 20, y);
-        y += 6;
-        
-        pdf.setFontSize(10);
-        pdf.setFont(undefined, 'normal');
-        pdf.text(`Promedio por viaje: ${formatearPesos(r.promedioViaje)}`, 20, y);
-        y += 6;
-        pdf.text(`Promedio por kilometro: ${formatearPesos(r.promedioKm)}`, 20, y);
-        y += 12;
-        
-        pdf.setFontSize(11);
-        pdf.setFont(undefined, 'bold');
-        pdf.text('DESGLOSE TITULAR', 20, y);
-        y += 6;
-        
-        pdf.setFontSize(9);
-        pdf.setFont(undefined, 'normal');
-        pdf.text(`Total (Recaudacion): ${formatearPesos(r.recaudacion)}`, 20, y);
-        y += 5;
-        pdf.text(`Combustible: - ${formatearPesos(r.combustible)}`, 20, y);
-        y += 5;
-        pdf.text(`Subtotal: ${formatearPesos(r.despuesCombustible)}`, 20, y);
-        y += 5;
-        pdf.text(`50%: ${formatearPesos(r.base50)}`, 20, y);
-        y += 5;
-        pdf.text(`Frecuencia: + ${formatearPesos(r.frecuencia)}`, 20, y);
-        y += 5;
-        pdf.text(`Sub total: ${formatearPesos(r.base50 + r.frecuencia)}`, 20, y);
-        y += 5;
-        pdf.text(`Tarjeta/QR: - ${formatearPesos(r.tarjetaQr)}`, 20, y);
-        y += 5;
-        pdf.text(`Voucher: - ${formatearPesos(r.voucher)}`, 20, y);
-        y += 5;
-        pdf.text(`Token: - ${formatearPesos(r.token)}`, 20, y);
-        y += 5;
-        pdf.text(`Cuenta Corriente: - ${formatearPesos(r.cuentaCorriente)}`, 20, y);
-        y += 5;
-        pdf.text(`Gastos: - ${formatearPesos(r.gastos)}`, 20, y);
-        y += 5;
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`TOTAL TITULAR: ${formatearPesos(r.totalTitular)}`, 20, y);
-        y += 8;
-        
-        pdf.setFont(undefined, 'bold');
-        pdf.text('DESGLOSE CHOFER', 20, y);
-        y += 6;
-        
-        pdf.setFont(undefined, 'normal');
-        pdf.text(`Base 50%: ${formatearPesos(r.base50)}`, 20, y);
-        y += 5;
-        pdf.text(`Frecuencia: - ${formatearPesos(r.frecuencia)}`, 20, y);
-        y += 5;
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`TOTAL CHOFER: ${formatearPesos(r.totalChofer)}`, 20, y);
-        y += 10;
-        
-        if (r.notas && r.notas.trim() !== '') {
-            pdf.setFont(undefined, 'bold');
-            pdf.text('NOTAS U OBSERVACIONES', 20, y);
-            y += 6;
-            pdf.setFont(undefined, 'normal');
-            pdf.setFontSize(9);
-            const notasLines = pdf.splitTextToSize(r.notas, 170);
-            pdf.text(notasLines, 20, y);
-            y += (notasLines.length * 5) + 8;
-        }
-        
-        pdf.setFontSize(8);
-        pdf.setFont(undefined, 'italic');
-        pdf.setTextColor(100, 100, 100);
-        pdf.text('Formula aplicada: (Recaudacion - Combustible) / 2 = Base 50%', 20, y);
-        y += 4;
-        pdf.text('Titular = Base + Frecuencia - (Tarjeta/QR + Voucher + Token + Cta Cte + Gastos)', 20, y);
-        y += 4;
-        pdf.text('Chofer = Base - Frecuencia', 20, y);
-        
-        pdf.save(`cierre_turno_${r.fecha}_${r.chofer || 'sin_nombre'}.pdf`);
-    }
-
-    // =============================================
-    // GENERAR MENSAJE PARA WHATSAPP Y EMAIL
-    // =============================================
-    
-    function generarMensajeTexto() {
-        const r = calcularTodo();
-        let mensaje = `CIERRE DE TURNO
-Fecha: ${r.fechaFormateada}
-Chofer: ${r.chofer}
-Licencia: ${r.licencia}
-
-MOVIMIENTOS:
-Viajes: ${formatearNumero(r.viajes)}
-Kilometros: ${formatearNumero(r.kilometros)}
-Recaudacion: ${formatearPesos(r.recaudacion)}
-Combustible: ${formatearPesos(r.combustible)}
-Frecuencia: ${formatearPesos(r.frecuencia)}
-Tarjeta/QR: ${formatearPesos(r.tarjetaQr)}
-Voucher: ${formatearPesos(r.voucher)}
-Token: ${formatearPesos(r.token)}
-Cuenta Corriente: ${formatearPesos(r.cuentaCorriente)}
-Gastos: ${formatearPesos(r.gastos)}
-
-RESULTADOS:
-TITULAR: ${formatearPesos(r.totalTitular)}
-CHOFER: ${formatearPesos(r.totalChofer)}
-
-PROMEDIOS:
-Por viaje: ${formatearPesos(r.promedioViaje)}
-Por kilometro: ${formatearPesos(r.promedioKm)}`;
-        
-        if (r.notas && r.notas.trim() !== '') {
-            mensaje += `\n\nNOTAS:\n${r.notas}`;
-        }
-        
-        return mensaje;
-    }
-
-    function enviarWhatsapp() {
-        const mensaje = generarMensajeTexto();
-        window.open(`https://wa.me/?text=${encodeURIComponent(mensaje)}`, '_blank');
-    }
-
-    function enviarEmail() {
-        const r = calcularTodo();
-        const mensaje = generarMensajeTexto();
-        window.open(`mailto:?subject=${encodeURIComponent(`Cierre de turno - ${r.fecha} - ${r.chofer}`)}&body=${encodeURIComponent(mensaje)}`, '_blank');
-    }
-
-    // =============================================
-    // EVENTOS
-    // =============================================
-    
-    document.getElementById('exportarPDF').addEventListener('click', exportarPDF);
-    document.getElementById('enviarWhatsapp').addEventListener('click', enviarWhatsapp);
-    document.getElementById('enviarEmail').addEventListener('click', enviarEmail);
-
-    setupEnterNavigation();
-
-    const todosLosCampos = [
-        recaudacionInput, combustibleInput, frecuenciaInput,
-        tarjetaQrInput, voucherInput, tokenInput,
-        cuentaCorrienteInput, gastosInput, viajesInput,
-        kilometrosInput, fechaInput, licenciaInput,
-        choferInput, notasTextarea
-    ];
-    
-    todosLosCampos.forEach(campo => {
-        campo.addEventListener('input', actualizarPantalla);
-    });
-
-    actualizarPantalla();
-</script>
+<!-- Scripts modulares -->
+<script src="js/utils.js"></script>
+<script src="js/calculations.js"></script>
+<script src="js/pdf.js"></script>
+<script src="js/share.js"></script>
+<script src="js/main.js"></script>
 
 </body>
 </html>
