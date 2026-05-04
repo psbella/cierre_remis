@@ -6,6 +6,15 @@
     
     <title>Cierre de Turno</title>
     
+    <!-- ========== NUEVO: PWA ========== -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#3498db">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CierreTurno">
+    <link rel="apple-touch-icon" href="icon-152x152.png">
+    <!-- ================================ -->
+    
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
@@ -220,5 +229,17 @@
 <script src="js/share.js"></script>
 <script src="js/main.js"></script>
 
+<!-- ========== NUEVO: Registro del Service Worker para PWA ========== -->
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then(reg => console.log('Service Worker registrado:', reg))
+                .catch(err => console.log('Error al registrar SW:', err));
+        });
+    }
+</script>
+<!-- ================================================================ -->
+
 </body>
-</html>
+        </html>
