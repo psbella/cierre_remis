@@ -1,7 +1,4 @@
-// Nombre de la cache
 const CACHE_NAME = 'cierre-turno-v1';
-
-// Archivos a cachear
 const FILES_TO_CACHE = [
     '.',
     'index.html',
@@ -11,11 +8,18 @@ const FILES_TO_CACHE = [
     'js/pdf.js',
     'js/share.js',
     'js/main.js',
+    'manifest.json',
     'favicon.svg',
-    'manifest.json'
+    'icon-72x72.png',
+    'icon-96x96.png',
+    'icon-128x128.png',
+    'icon-144x144.png',
+    'icon-152x152.png',
+    'icon-192x192.png',
+    'icon-256x256.png',
+    'icon-512x512.png'
 ];
 
-// Instalacion del Service Worker
 self.addEventListener('install', (event) => {
     event.waitUntil(
         caches.open(CACHE_NAME).then((cache) => {
@@ -26,7 +30,6 @@ self.addEventListener('install', (event) => {
     self.skipWaiting();
 });
 
-// Activacion y limpieza de caches viejas
 self.addEventListener('activate', (event) => {
     event.waitUntil(
         caches.keys().then((keyList) => {
@@ -41,7 +44,6 @@ self.addEventListener('activate', (event) => {
     self.clients.claim();
 });
 
-// Estrategia: cache first, luego network
 self.addEventListener('fetch', (event) => {
     event.respondWith(
         caches.match(event.request).then((response) => {
