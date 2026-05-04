@@ -61,12 +61,12 @@ Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula a
 | Kilómetros recorridos | Kilómetros totales del turno |
 | Recaudación | Total de dinero recaudado |
 | Combustible | Gasto en combustible |
-| Frecuencia | Peajes o comisiones por viajes frecuentes |
+| Frecuencia | Tasa de servicio diaria que abona el chofer al titular |
 | Tarjeta / QR | Pagos con débito/crédito/QR |
 | Voucher | Pagos con vale o comprobante |
 | Token | Pagos con token electrónico |
 | Cuenta Corriente | Pagos de clientes a cuenta corriente |
-| Gastos | Lavado, taller, multas, etc. |
+| Gastos | Gomería, repuestos, etc... |
 | Notas | Observaciones adicionales |
 
 ## 🚀 Cómo usarlo
@@ -177,7 +177,7 @@ El PDF incluye:
 | Token | - $ 0 |
 | Cuenta Corriente | - $ 0 |
 | Gastos | - $ 4.000 |
-| TOTAL TITULAR | $ 35.700 |
+| TOTAL TITULAR | **$ 35.700** |
 
 ## DESGLOSE CHOFER
 
@@ -185,13 +185,13 @@ El PDF incluye:
 |----------|-------|
 | Base 50% | $ 63.100 |
 | Frecuencia | - $ 1.300 |
-| TOTAL CHOFER | $ 61.800 |
+| TOTAL CHOFER | **$ 61.800** |
 
 ## NOTAS U OBSERVACIONES
 
 | Nota |
 |------|
-| viaje de cordoba 2600 debe 1300 |
+| Pedir turno VTV que vence en 10 días |
 
 ## FORMULA APLICADA
 
