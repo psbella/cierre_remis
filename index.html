@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     
-    
     <title>Cierre de Turno</title>
+    
     <!-- Favicon -->
-<link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
     <!-- Estilos -->
     <link rel="stylesheet" href="css/styles.css">
@@ -26,16 +26,16 @@
         <h3>DATOS DEL TURNO</h3>
         <div class="fila-2">
             <div class="campo">
-                <label>Fecha</label>
+                <label for="fecha">Fecha</label>
                 <input type="date" id="fecha" value="2026-05-03">
             </div>
             <div class="campo">
-                <label>Licencia</label>
+                <label for="licencia">Licencia</label>
                 <input type="text" id="licencia" placeholder="">
             </div>
         </div>
         <div class="campo">
-            <label>Chofer</label>
+            <label for="choferNombre">Chofer</label>
             <input type="text" id="choferNombre" placeholder="">
         </div>
     </div>
@@ -46,60 +46,60 @@
 
         <div class="fila-2">
             <div class="campo">
-                <label>Cantidad de viajes</label>
-                <input type="number" id="viajes" placeholder="" step="any" inputmode="numeric">
+                <label for="viajes">Cantidad de viajes</label>
+                <input type="number" id="viajes" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
             <div class="campo">
-                <label>Kilometros recorridos</label>
-                <input type="number" id="kilometros" placeholder="" step="any" inputmode="numeric">
+                <label for="kilometros">Kilometros recorridos</label>
+                <input type="number" id="kilometros" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
         </div>
 
         <div class="campo">
-            <label>Recaudacion</label>
-            <input type="number" id="recaudacion" placeholder="" step="any" inputmode="numeric">
+            <label for="recaudacion">Recaudacion</label>
+            <input type="number" id="recaudacion" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
         </div>
 
         <div class="campo">
-            <label>Combustible</label>
-            <input type="number" id="combustible" placeholder="" step="any" inputmode="numeric">
+            <label for="combustible">Combustible</label>
+            <input type="number" id="combustible" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
         </div>
 
         <div class="fila-2">
             <div class="campo">
-                <label>Frecuencia</label>
-                <input type="number" id="frecuencia" placeholder="" step="any" inputmode="numeric">
+                <label for="frecuencia">Frecuencia</label>
+                <input type="number" id="frecuencia" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
             <div class="campo">
-                <label>Tarjeta / QR</label>
-                <input type="number" id="tarjeta_qr" placeholder="" step="any" inputmode="numeric">
-            </div>
-        </div>
-
-        <div class="fila-2">
-            <div class="campo">
-                <label>Voucher</label>
-                <input type="number" id="voucher" placeholder="" step="any" inputmode="numeric">
-            </div>
-            <div class="campo">
-                <label>Token</label>
-                <input type="number" id="token" placeholder="" step="any" inputmode="numeric">
+                <label for="tarjeta_qr">Tarjeta / QR</label>
+                <input type="number" id="tarjeta_qr" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
         </div>
 
         <div class="fila-2">
             <div class="campo">
-                <label>Cuenta Corriente</label>
-                <input type="number" id="cuenta_corriente" placeholder="" step="any" inputmode="numeric">
+                <label for="voucher">Voucher</label>
+                <input type="number" id="voucher" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
             <div class="campo">
-                <label>Gastos</label>
-                <input type="number" id="gastos" placeholder="" step="any" inputmode="numeric">
+                <label for="token">Token</label>
+                <input type="number" id="token" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
+            </div>
+        </div>
+
+        <div class="fila-2">
+            <div class="campo">
+                <label for="cuenta_corriente">Cuenta Corriente</label>
+                <input type="number" id="cuenta_corriente" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
+            </div>
+            <div class="campo">
+                <label for="gastos">Gastos</label>
+                <input type="number" id="gastos" placeholder="" step="any" inputmode="numeric" pattern="[0-9]*">
             </div>
         </div>
 
         <div class="campo">
-            <label>Notas u observaciones</label>
+            <label for="notas">Notas u observaciones</label>
             <textarea id="notas" placeholder=""></textarea>
         </div>
     </div>
@@ -208,7 +208,7 @@
     <!-- FOOTER -->
     <div class="footer">
         Cierre de Turno v1.1.0 | Desarrollado por <a href="mailto:pablo.s.bella@gmail.com">Pablo Bella</a> | 
-        <a href="https://github.com/psbella/Cierre-remis" target="_blank">GitHub</a> | 
+        <a href="https://github.com/psbella/cierre_remis" target="_blank">GitHub</a> | 
         <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
     </div>
 </div>
