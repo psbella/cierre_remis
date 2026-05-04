@@ -101,7 +101,8 @@ Se puede convertir a APK usando servicios como:
     ├── calculations.js
     ├── pdf.js
     ├── share.js
-    └── main.js```
+    └── main.js
+```
 
 
 ## 🖥️ Navegación con Enter (PC)
