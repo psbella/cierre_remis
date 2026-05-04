@@ -30,4 +30,42 @@ function actualizarPantalla() {
     // Actualizar detalle CHOFER
     detalle.detChoferBase.textContent = formatearPesos(r.base50);
     detalle.detChoferFrecuencia.textContent = formatearPesos(r.frecuencia);
-    detalle.detTotal
+    detalle.detTotalChofer.textContent = formatearPesos(r.totalChofer);
+    
+    // Mostrar operacion completa
+    detalle.detOperacion.innerHTML = `TITULAR: ${formatearPesos(r.recaudacion)} - ${formatearPesos(r.combustible)} = ${formatearPesos(r.despuesCombustible)} / 2 = ${formatearPesos(r.base50)} + ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.base50 + r.frecuencia)} - (${formatearPesos(r.tarjetaQr)} + ${formatearPesos(r.voucher)} + ${formatearPesos(r.token)} + ${formatearPesos(r.cuentaCorriente)} + ${formatearPesos(r.gastos)}) = ${formatearPesos(r.totalTitular)}<br><br>CHOFER: ${formatearPesos(r.base50)} - ${formatearPesos(r.frecuencia)} = ${formatearPesos(r.totalChofer)}`;
+}
+
+// Navegacion con Enter (PC)
+function setupEnterNavigation() {
+    const campos = document.querySelectorAll('input, textarea');
+    campos.forEach((campo, index) => {
+        campo.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                const siguienteCampo = campos[index + 1];
+                if (siguienteCampo) {
+                    siguienteCampo.focus();
+                    siguienteCampo.select();
+                }
+            }
+        });
+    });
+}
+
+// Eventos de los botones
+document.getElementById('exportarPDF').addEventListener('click', exportarPDF);
+document.getElementById('enviarWhatsapp').addEventListener('click', enviarWhatsapp);
+document.getElementById('enviarEmail').addEventListener('click', enviarEmail);
+
+// Activar navegacion con Enter
+setupEnterNavigation();
+
+// Actualizar al escribir en cualquier campo
+const todosLosCampos = document.querySelectorAll('input, textarea');
+todosLosCampos.forEach(campo => {
+    campo.addEventListener('input', actualizarPantalla);
+});
+
+// Inicializar
+actualizarPantalla();
