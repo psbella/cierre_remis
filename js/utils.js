@@ -51,4 +51,4 @@ function obtenerElementosDetalle() {
         detTotalChofer: document.getElementById('detTotalChofer'),
         detOperacion: document.getElementById('detOperacion')
     };
-        }
+}
