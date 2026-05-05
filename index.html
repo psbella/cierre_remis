@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    
     <title>Cierre de Turno</title>
     
     <!-- PWA -->
@@ -27,199 +26,243 @@
 </head>
 <body>
 
-<div class="container">
-    <h1>CIERRE DE TURNO</h1>
-    <div class="subtitulo">Liquidacion para chofer y titular</div>
-
-    <!-- DATOS DEL TURNO -->
-    <div class="seccion">
-        <h3>DATOS DEL TURNO</h3>
-        <div class="fila-2">
+<!-- ============================================= -->
+<!-- SECCION LOGIN CON TELEFONO                    -->
+<!-- ============================================= -->
+<div id="loginSection">
+    <div class="container">
+        <h1>CIERRE DE TURNO</h1>
+        <div class="subtitulo">Ingreso con WhatsApp / SMS</div>
+        
+        <div class="seccion">
             <div class="campo">
-                <label for="fecha">Fecha</label>
-                <input type="date" id="fecha" value="2026-05-03">
+                <label for="phoneNumber">Número de teléfono</label>
+                <input type="tel" id="phoneNumber" placeholder="+5491112345678">
             </div>
-            <div class="campo">
-                <label for="licencia">Licencia</label>
-                <input type="text" id="licencia" placeholder="" inputmode="numeric" pattern="[0-9]*">
+            <button id="btnSendCode">Enviar código</button>
+            <div id="recaptcha-container"></div>
+            
+            <div class="campo" style="margin-top: 15px;">
+                <label for="verificationCode">Código de verificación</label>
+                <input type="text" id="verificationCode" placeholder="Código de 6 dígitos" disabled>
             </div>
-        </div>
-        <div class="campo">
-            <label for="choferNombre">Chofer</label>
-            <input type="text" id="choferNombre" placeholder="">
+            <button id="btnVerify" disabled>Verificar e ingresar</button>
         </div>
     </div>
+</div>
 
-    <!-- MOVIMIENTOS DEL TURNO -->
-    <div class="seccion">
-        <h3>MOVIMIENTOS DEL TURNO</h3>
+<!-- ============================================= -->
+<!-- SECCION PRINCIPAL (APP)                       -->
+<!-- ============================================= -->
+<div id="appSection" style="display:none;">
+    <div class="container">
+        <h1>CIERRE DE TURNO</h1>
+        <div class="subtitulo">Liquidacion para chofer y titular</div>
+        
+        <div style="background: #f5f5f5; padding: 10px; border-radius: 12px; margin-bottom: 15px; display: flex; justify-content: space-between; align-items: center;">
+            <span>Bienvenido, <strong id="userPhone"></strong></span>
+            <button id="btnLogout" style="margin:0; padding: 5px 10px; width: auto;">Cerrar sesión</button>
+        </div>
 
-        <div class="fila-2">
-            <div class="campo">
-                <label for="viajes">Cantidad de viajes</label>
-                <input type="text" id="viajes" placeholder="" inputmode="numeric" pattern="[0-9]*">
+        <!-- DATOS DEL TURNO -->
+        <div class="seccion">
+            <h3>DATOS DEL TURNO</h3>
+            <div class="fila-2">
+                <div class="campo">
+                    <label for="fecha">Fecha</label>
+                    <input type="date" id="fecha" value="2026-05-04">
+                </div>
+                <div class="campo">
+                    <label for="licencia">Licencia</label>
+                    <input type="text" id="licencia" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
             </div>
             <div class="campo">
-                <label for="kilometros">Kilometros recorridos</label>
-                <input type="text" id="kilometros" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                <label for="choferNombre">Chofer</label>
+                <input type="text" id="choferNombre" placeholder="">
             </div>
         </div>
 
-        <div class="campo">
-            <label for="recaudacion">Recaudacion</label>
-            <input type="text" id="recaudacion" placeholder="" inputmode="numeric" pattern="[0-9]*">
-        </div>
+        <!-- MOVIMIENTOS DEL TURNO -->
+        <div class="seccion">
+            <h3>MOVIMIENTOS DEL TURNO</h3>
 
-        <div class="campo">
-            <label for="combustible">Combustible</label>
-            <input type="text" id="combustible" placeholder="" inputmode="numeric" pattern="[0-9]*">
-        </div>
+            <div class="fila-2">
+                <div class="campo">
+                    <label for="viajes">Cantidad de viajes</label>
+                    <input type="text" id="viajes" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+                <div class="campo">
+                    <label for="kilometros">Kilometros recorridos</label>
+                    <input type="text" id="kilometros" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+            </div>
 
-        <div class="fila-2">
             <div class="campo">
-                <label for="frecuencia">Frecuencia</label>
-                <input type="text" id="frecuencia" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                <label for="recaudacion">Recaudacion</label>
+                <input type="text" id="recaudacion" placeholder="" inputmode="numeric" pattern="[0-9]*">
             </div>
+
             <div class="campo">
-                <label for="tarjeta_qr">Tarjeta / QR</label>
-                <input type="text" id="tarjeta_qr" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                <label for="combustible">Combustible</label>
+                <input type="text" id="combustible" placeholder="" inputmode="numeric" pattern="[0-9]*">
             </div>
-        </div>
 
-        <div class="fila-2">
+            <div class="fila-2">
+                <div class="campo">
+                    <label for="frecuencia">Frecuencia</label>
+                    <input type="text" id="frecuencia" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+                <div class="campo">
+                    <label for="tarjeta_qr">Tarjeta / QR</label>
+                    <input type="text" id="tarjeta_qr" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+            </div>
+
+            <div class="fila-2">
+                <div class="campo">
+                    <label for="voucher">Voucher</label>
+                    <input type="text" id="voucher" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+                <div class="campo">
+                    <label for="token">Token</label>
+                    <input type="text" id="token" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+            </div>
+
+            <div class="fila-2">
+                <div class="campo">
+                    <label for="cuenta_corriente">Cuenta Corriente</label>
+                    <input type="text" id="cuenta_corriente" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+                <div class="campo">
+                    <label for="gastos">Gastos</label>
+                    <input type="text" id="gastos" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                </div>
+            </div>
+
             <div class="campo">
-                <label for="voucher">Voucher</label>
-                <input type="text" id="voucher" placeholder="" inputmode="numeric" pattern="[0-9]*">
-            </div>
-            <div class="campo">
-                <label for="token">Token</label>
-                <input type="text" id="token" placeholder="" inputmode="numeric" pattern="[0-9]*">
+                <label for="notas">Notas u observaciones</label>
+                <textarea id="notas" placeholder=""></textarea>
             </div>
         </div>
 
-        <div class="fila-2">
-            <div class="campo">
-                <label for="cuenta_corriente">Cuenta Corriente</label>
-                <input type="text" id="cuenta_corriente" placeholder="" inputmode="numeric" pattern="[0-9]*">
+        <!-- RESULTADOS PRINCIPALES -->
+        <div class="resultados">
+            <div class="resultado-item">
+                <strong class="titular">TITULAR</strong>
+                <span class="total-numero titular" id="totalTitular">$ 0</span>
             </div>
-            <div class="campo">
-                <label for="gastos">Gastos</label>
-                <input type="text" id="gastos" placeholder="" inputmode="numeric" pattern="[0-9]*">
+            <div class="resultado-item">
+                <strong class="chofer">CHOFER</strong>
+                <span class="total-numero chofer" id="totalChofer">$ 0</span>
             </div>
-        </div>
 
-        <div class="campo">
-            <label for="notas">Notas u observaciones</label>
-            <textarea id="notas" placeholder=""></textarea>
-        </div>
-    </div>
-
-    <!-- RESULTADOS PRINCIPALES -->
-    <div class="resultados">
-        <div class="resultado-item">
-            <strong class="titular">TITULAR</strong>
-            <span class="total-numero titular" id="totalTitular">$ 0</span>
-        </div>
-        <div class="resultado-item">
-            <strong class="chofer">CHOFER</strong>
-            <span class="total-numero chofer" id="totalChofer">$ 0</span>
-        </div>
-
-        <div class="estadistica">
-            <div class="estadistica-item">
-                <span>Promedio por viaje</span>
-                <strong id="promedioViaje">$ 0</strong>
-            </div>
-            <div class="estadistica-item">
-                <span>Promedio por kilometro</span>
-                <strong id="promedioKm">$ 0</strong>
+            <div class="estadistica">
+                <div class="estadistica-item">
+                    <span>Promedio por viaje</span>
+                    <strong id="promedioViaje">$ 0</strong>
+                </div>
+                <div class="estadistica-item">
+                    <span>Promedio por kilometro</span>
+                    <strong id="promedioKm">$ 0</strong>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- BOTONERA -->
-    <div class="botonera">
-        <button id="exportarPDF">PDF</button>
-        <button id="enviarWhatsapp">WHATSAPP</button>
-        <button id="enviarEmail">EMAIL</button>
-    </div>
-
-    <!-- DETALLE DE CUENTA -->
-    <div class="detalle-content">
-        <div style="font-weight: bold; margin-bottom: 6px; color: #27ae60;">TITULAR</div>
-        <div class="detalle-item">
-            <span>Total (Recaudacion)</span>
-            <strong id="detTotal">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Combustible</span>
-            <strong id="detCombustible">$ 0</strong>
-        </div>
-        <div class="detalle-item detalle-subtotal">
-            <span>Subtotal</span>
-            <strong id="detSubtotal1">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>50%</span>
-            <strong id="det50">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Frecuencia</span>
-            <strong id="detFrecuencia">$ 0</strong>
-        </div>
-        <div class="detalle-item detalle-subtotal">
-            <span>Sub total</span>
-            <strong id="detSubtotal2">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Tarjeta / QR</span>
-            <strong id="detTarjeta">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Voucher</span>
-            <strong id="detVoucher">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Token</span>
-            <strong id="detToken">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Cuenta Corriente</span>
-            <strong id="detCtaCte">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Gastos</span>
-            <strong id="detGastos">$ 0</strong>
-        </div>
-        <div class="detalle-item detalle-total-titular">
-            <span>TOTAL TITULAR</span>
-            <strong id="detTotalTitular">$ 0</strong>
+        <!-- BOTONERA -->
+        <div class="botonera">
+            <button id="exportarPDF">PDF</button>
+            <button id="enviarWhatsapp">WHATSAPP</button>
+            <button id="enviarEmail">EMAIL</button>
+            <button id="guardarTurno" style="background:#27ae60;">GUARDAR</button>
         </div>
 
-        <div class="separador"></div>
+        <!-- DETALLE DE CUENTA -->
+        <div class="detalle-content">
+            <div style="font-weight: bold; margin-bottom: 6px; color: #27ae60;">TITULAR</div>
+            <div class="detalle-item">
+                <span>Total (Recaudacion)</span>
+                <strong id="detTotal">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Combustible</span>
+                <strong id="detCombustible">$ 0</strong>
+            </div>
+            <div class="detalle-item detalle-subtotal">
+                <span>Subtotal</span>
+                <strong id="detSubtotal1">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>50%</span>
+                <strong id="det50">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Frecuencia</span>
+                <strong id="detFrecuencia">$ 0</strong>
+            </div>
+            <div class="detalle-item detalle-subtotal">
+                <span>Sub total</span>
+                <strong id="detSubtotal2">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Tarjeta / QR</span>
+                <strong id="detTarjeta">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Voucher</span>
+                <strong id="detVoucher">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Token</span>
+                <strong id="detToken">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Cuenta Corriente</span>
+                <strong id="detCtaCte">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Gastos</span>
+                <strong id="detGastos">$ 0</strong>
+            </div>
+            <div class="detalle-item detalle-total-titular">
+                <span>TOTAL TITULAR</span>
+                <strong id="detTotalTitular">$ 0</strong>
+            </div>
 
-        <div style="font-weight: bold; margin-bottom: 6px; margin-top: 4px; color: #2980b9;">CHOFER</div>
-        <div class="detalle-item">
-            <span>Base 50%</span>
-            <strong id="detChoferBase">$ 0</strong>
-        </div>
-        <div class="detalle-item">
-            <span>Frecuencia</span>
-            <strong id="detChoferFrecuencia">$ 0</strong>
-        </div>
-        <div class="detalle-item detalle-total-chofer">
-            <span>TOTAL CHOFER</span>
-            <strong id="detTotalChofer">$ 0</strong>
+            <div class="separador"></div>
+
+            <div style="font-weight: bold; margin-bottom: 6px; margin-top: 4px; color: #2980b9;">CHOFER</div>
+            <div class="detalle-item">
+                <span>Base 50%</span>
+                <strong id="detChoferBase">$ 0</strong>
+            </div>
+            <div class="detalle-item">
+                <span>Frecuencia</span>
+                <strong id="detChoferFrecuencia">$ 0</strong>
+            </div>
+            <div class="detalle-item detalle-total-chofer">
+                <span>TOTAL CHOFER</span>
+                <strong id="detTotalChofer">$ 0</strong>
+            </div>
+
+            <div class="detalle-operacion" id="detOperacion"></div>
         </div>
 
-        <div class="detalle-operacion" id="detOperacion"></div>
-    </div>
+        <!-- HISTORIAL DE TURNOS -->
+        <div style="margin-top: 20px;">
+            <h3>HISTORIAL DE TURNOS</h3>
+            <div id="historialLista" style="background: #f5f5f5; border-radius: 12px; padding: 14px; max-height: 300px; overflow-y: auto;">
+                <p>Cargando...</p>
+            </div>
+        </div>
 
-    <!-- FOOTER -->
-    <div class="footer">
-        Cierre de Turno v1.1.0 | Desarrollado por <a href="mailto:pablo.s.bella@gmail.com">Pablo Bella</a> | 
-        <a href="https://github.com/psbella/cierre_remis" target="_blank">GitHub</a> | 
-        <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+        <!-- FOOTER -->
+        <div class="footer">
+            Cierre de Turno v1.1.0 | Desarrollado por <a href="mailto:pablo.s.bella@gmail.com">Pablo Bella</a> | 
+            <a href="https://github.com/psbella/cierre_remis" target="_blank">GitHub</a> | 
+            <a href="https://opensource.org/licenses/MIT" target="_blank">MIT License</a>
+        </div>
     </div>
 </div>
 
@@ -230,16 +273,211 @@
 <script src="js/share.js"></script>
 <script src="js/main.js"></script>
 
-<!-- Registro del Service Worker -->
-<script>
-    if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('sw.js')
-                .then(reg => console.log('Service Worker registrado:', reg))
-                .catch(err => console.log('Error al registrar SW:', err));
+<!-- Firebase SDKs y lógica de autenticación -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-app.js";
+    import { getAuth, RecaptchaVerifier, signInWithPhoneNumber, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-auth.js";
+    import { getFirestore, collection, addDoc, getDocs, query, orderBy, doc } from "https://www.gstatic.com/firebasejs/12.12.1/firebase-firestore.js";
+
+    // TU CONFIGURACIÓN DE FIREBASE (copiada de la consola)
+    const firebaseConfig = {
+        apiKey: "AIzaSyAu30ZcHw9W74kZM0ur_ZX3lubJpbnjw8w",
+        authDomain: "cierre-turno-remis.firebaseapp.com",
+        projectId: "cierre-turno-remis",
+        storageBucket: "cierre-turno-remis.firebasestorage.app",
+        messagingSenderId: "764956182604",
+        appId: "1:764956182604:web:0bc6b6d1eb60d78548cce9"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Elementos del DOM
+    const loginSection = document.getElementById('loginSection');
+    const appSection = document.getElementById('appSection');
+    const phoneNumber = document.getElementById('phoneNumber');
+    const verificationCode = document.getElementById('verificationCode');
+    const btnSendCode = document.getElementById('btnSendCode');
+    const btnVerify = document.getElementById('btnVerify');
+    const btnLogout = document.getElementById('btnLogout');
+    const userPhoneSpan = document.getElementById('userPhone');
+    const guardarTurnoBtn = document.getElementById('guardarTurno');
+    const historialLista = document.getElementById('historialLista');
+
+    let confirmationResult = null;
+    let currentUser = null;
+
+    // Configurar reCAPTCHA
+    function setupRecaptcha() {
+        window.recaptchaVerifier = new RecaptchaVerifier(auth, 'recaptcha-container', {
+            'size': 'invisible'
         });
     }
+
+    // Enviar código SMS
+    btnSendCode.onclick = async () => {
+        const phone = phoneNumber.value;
+        if (!phone) {
+            alert("Ingresá tu número con código de país (ej: +5491112345678)");
+            return;
+        }
+        setupRecaptcha();
+        try {
+            confirmationResult = await signInWithPhoneNumber(auth, phone, window.recaptchaVerifier);
+            alert("Código enviado. Revisá tu SMS");
+            verificationCode.disabled = false;
+            btnVerify.disabled = false;
+        } catch (error) {
+            console.error(error);
+            alert("Error al enviar código: " + error.message);
+        }
+    };
+
+    // Verificar código SMS
+    btnVerify.onclick = async () => {
+        const code = verificationCode.value;
+        if (!code) {
+            alert("Ingresá el código que recibiste por SMS");
+            return;
+        }
+        try {
+            const result = await confirmationResult.confirm(code);
+            currentUser = result.user;
+            userPhoneSpan.innerText = currentUser.phoneNumber;
+            loginSection.style.display = "none";
+            appSection.style.display = "block";
+            cargarHistorial();
+        } catch (error) {
+            console.error(error);
+            alert("Código incorrecto o expirado");
+        }
+    };
+
+    // Cerrar sesión
+    btnLogout.onclick = async () => {
+        await signOut(auth);
+        currentUser = null;
+        loginSection.style.display = "block";
+        appSection.style.display = "none";
+        phoneNumber.value = '';
+        verificationCode.value = '';
+        verificationCode.disabled = true;
+        btnVerify.disabled = true;
+    };
+
+    // Guardar turno en Firestore
+    async function guardarTurno() {
+        if (!currentUser) {
+            alert("No hay sesión activa");
+            return;
+        }
+
+        const r = calcularTodo();  // función del archivo calculations.js
+
+        const turnoData = {
+            fecha: document.getElementById('fecha').value,
+            chofer: document.getElementById('choferNombre').value || '',
+            licencia: document.getElementById('licencia').value || '',
+            viajes: parseFloat(document.getElementById('viajes').value) || 0,
+            kilometros: parseFloat(document.getElementById('kilometros').value) || 0,
+            recaudacion: r.recaudacion,
+            combustible: r.combustible,
+            frecuencia: r.frecuencia,
+            tarjetaQr: r.tarjetaQr,
+            voucher: r.voucher,
+            token: r.token,
+            cuentaCorriente: r.cuentaCorriente,
+            gastos: r.gastos,
+            totalTitular: r.totalTitular,
+            totalChofer: r.totalChofer,
+            notas: document.getElementById('notas').value || '',
+            createdAt: new Date().toISOString()
+        };
+
+        try {
+            // Guardar en Firestore: colección "usuarios" -> doc con UID del usuario -> subcolección "turnos"
+            const userDocRef = doc(db, "usuarios", currentUser.uid);
+            const turnosColRef = collection(userDocRef, "turnos");
+            await addDoc(turnosColRef, turnoData);
+            alert("Turno guardado correctamente");
+            cargarHistorial();
+        } catch (error) {
+            console.error("Error al guardar:", error);
+            alert("Error al guardar el turno: " + error.message);
+        }
+    }
+
+    // Cargar historial de turnos desde Firestore
+    async function cargarHistorial() {
+        if (!currentUser) {
+            historialLista.innerHTML = "<p>Iniciá sesión para ver tu historial.</p>";
+            return;
+        }
+
+        try {
+            const userDocRef = doc(db, "usuarios", currentUser.uid);
+            const turnosColRef = collection(userDocRef, "turnos");
+            const q = query(turnosColRef, orderBy("fecha", "desc"));
+            const querySnapshot = await getDocs(q);
+            
+            historialLista.innerHTML = "";
+            if (querySnapshot.empty) {
+                historialLista.innerHTML = "<p style='text-align:center; color:#7f8c8d;'>Todavía no hay turnos guardados.</p>";
+                return;
+            }
+            
+            querySnapshot.forEach((doc) => {
+                const data = doc.data();
+                const item = document.createElement("div");
+                item.style.padding = "8px 0";
+                item.style.borderBottom = "1px solid #ddd";
+                item.innerHTML = `<strong>${data.fecha}</strong> - Recaudación: $${data.recaudacion?.toLocaleString() || 0} - Chofer: ${data.chofer || 'N/A'}<br>
+                                  <small>Titular: $${data.totalTitular?.toLocaleString() || 0} | Chofer: $${data.totalChofer?.toLocaleString() || 0}</small>`;
+                historialLista.appendChild(item);
+            });
+        } catch (error) {
+            console.error("Error al cargar historial:", error);
+            historialLista.innerHTML = "<p style='color:red;'>Error al cargar el historial</p>";
+        }
+    }
+
+    // Escuchar cambios en autenticación
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            currentUser = user;
+            userPhoneSpan.innerText = currentUser.phoneNumber;
+            loginSection.style.display = "none";
+            appSection.style.display = "block";
+            cargarHistorial();
+        } else {
+            currentUser = null;
+            loginSection.style.display = "block";
+            appSection.style.display = "none";
+        }
+    });
+
+    // Evento guardar turno
+    if (guardarTurnoBtn) {
+        guardarTurnoBtn.onclick = guardarTurno;
+    }
 </script>
+
+<style>
+    /* Estilos adicionales para el historial */
+    .historial-item {
+        padding: 8px 0;
+        border-bottom: 1px solid #ddd;
+    }
+    .historial-item:last-child {
+        border-bottom: none;
+    }
+    #historialLista {
+        max-height: 300px;
+        overflow-y: auto;
+    }
+</style>
 
 </body>
 </html>
