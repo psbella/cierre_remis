@@ -2,7 +2,7 @@
     "name": "Cierre de Turno",
     "short_name": "CierreTurno",
     "description": "Liquidacion para chofer y titular de remis/taxi",
-    "start_url": "/cierre_remis/",
+    "start_url": ".",
     "display": "standalone",
     "theme_color": "#f39c12",
     "background_color": "#ffffff",
