@@ -54,7 +54,7 @@ Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula a
 | Campo | Descripción |
 |-------|-------------|
 | Fecha | Fecha del turno |
-| Licencia | Número de licencia del chofer |
+| Licencia | Número de móvil |
 | Chofer | Nombre del conductor |
 | Cantidad de viajes | Total de viajes realizados |
 | Kilómetros recorridos | Kilómetros totales del turno |
@@ -64,7 +64,7 @@ Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula a
 | Tarjeta / QR | Pagos con débito/crédito/QR |
 | Voucher | Pagos con vale o comprobante |
 | Token | Pagos con token electrónico |
-| Cuenta Corriente | Pagos de clientes a cuenta corriente |
+| Cuenta Corriente | Viajes que se cargan a cuenta corriente |
 | Gastos | Gomería, repuestos, etc... |
 | Notas | Observaciones adicionales |
 
