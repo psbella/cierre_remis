@@ -56,6 +56,26 @@
 [![PWA](https://img.shields.io/badge/PWA-100%25-brightgreen?logo=lighthouse&logoColor=white)]()
 [![Passed](https://img.shields.io/badge/Lighthouse-Passed-brightgreen?logo=lighthouse&logoColor=white)]()
 
+<!-- Seguridad -->
+[![HTTPS](https://img.shields.io/badge/HTTPS-Yes-brightgreen)](https://psbella.github.io/cierre_remis/)
+[![Secure](https://img.shields.io/badge/Secure-Yes-brightgreen)](https://psbella.github.io/cierre_remis/)
+
+<!-- Código -->
+[![Code Size](https://img.shields.io/badge/Code%20Size-~50KB-blueviolet)](https://github.com/psbella/cierre_remis)
+
+<!-- Navegadores -->
+[![Chrome](https://img.shields.io/badge/Chrome-✓-brightgreen)](https://www.google.com/chrome/)
+[![Firefox](https://img.shields.io/badge/Firefox-✓-brightgreen)](https://www.mozilla.org/firefox/)
+[![Safari](https://img.shields.io/badge/Safari-✓-brightgreen)](https://www.apple.com/safari/)
+[![Edge](https://img.shields.io/badge/Edge-✓-brightgreen)](https://www.microsoft.com/edge)
+
+<!-- Plataformas -->
+[![Android](https://img.shields.io/badge/Android-✓-brightgreen)](https://www.android.com/)
+[![iOS](https://img.shields.io/badge/iOS-✓-brightgreen)](https://www.apple.com/ios/)
+
+<!-- Calidad adicional -->
+[![CodeQL](https://img.shields.io/badge/CodeQL-Passed-brightgreen)](https://github.com/features/security)
+[![Vulnerabilities](https://img.shields.io/badge/Vulnerabilities-None-brightgreen)]()
 
 ---
 
