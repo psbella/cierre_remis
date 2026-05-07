@@ -42,7 +42,14 @@
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
 
 <!-- MÉTRICAS Y CALIDAD -->
-[![Lighthouse](https://img.shields.io/badge/Lighthouse-P85%2FA86%2FBP100%2FSEO90-8A2BE2?logo=lighthouse&logoColor=white)](https://developers.google.com/web/tools/lighthouse)
+
+[![Performance](https://img.shields.io/badge/Performance-96%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![Accessibility](https://img.shields.io/badge/Accessibility-86%25-yellow?logo=lighthouse&logoColor=white)]()
+[![Best Practices](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![SEO](https://img.shields.io/badge/SEO-90%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![PWA](https://img.shields.io/badge/PWA-96%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![Passed](https://img.shields.io/badge/Lighthouse-Passed-brightgreen?logo=lighthouse&logoColor=white)]()
+
 
 ---
 
