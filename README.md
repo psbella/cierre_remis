@@ -2,15 +2,27 @@
 
 # 🚖 Cierre de Turno
 
-![Version](https://img.shields.io/badge/version-1.1.0-blue)
-![Estado](https://img.shields.io/badge/estado-activo-brightgreen)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
-![jsPDF](https://img.shields.io/badge/jsPDF-2.5.1-red)
-![Dependencias](https://img.shields.io/badge/dependencias-1-blue)
-![Tamaño](https://img.shields.io/github/repo-size/psbella/cierre_remis)
-[![Licencia](https://img.shields.io/badge/licencia-MIT-green)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.1.0-blue)](https://psbella.github.io/cierre_remis/)
+[![stable](https://img.shields.io/badge/stable-✓-brightgreen)](https://github.com/psbella/cierre_remis)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green)](https://opensource.org/licenses/MIT)
+[![Repo Size](https://img.shields.io/github/repo-size/psbella/cierre_remis)](https://github.com/psbella/cierre_remis)
+[![Dependencies](https://img.shields.io/badge/dependencies-1%20(jsPDF)-brightgreen)](https://github.com/psbella/cierre_remis)
+[![PWA](https://img.shields.io/badge/PWA-Enabled-5a0fc8)](https://web.dev/progressive-web-apps/)
+[![Offline](https://img.shields.io/badge/Offline-First-brightgreen)](https://web.dev/offline-fallback-page/)
+[![Mobile First](https://img.shields.io/badge/Mobile%20First-Yes-blue)](https://developer.mozilla.org/es/docs/Web/Progressive_web_apps)
+[![Responsive](https://img.shields.io/badge/Responsive-Yes-brightgreen)](https://developer.mozilla.org/es/docs/Learn/CSS/CSS_layout/Responsive_Design)
+[![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-yellow)](https://developer.mozilla.org/es/docs/Web/JavaScript)
+[![jsPDF](https://img.shields.io/badge/jsPDF-2.5.1-red)](https://github.com/parallax/jsPDF)
+[![Service Worker](https://img.shields.io/badge/Service%20Worker-✅-blue)](https://developer.mozilla.org/es/docs/Web/API/Service_Worker_API)
+[![Web App Manifest](https://img.shields.io/badge/Web%20App%20Manifest-✅-blue)](https://developer.mozilla.org/es/docs/Web/Manifest)
+[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-blue)](https://pages.github.com/)
+[![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
+[![JSON](https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white)](https://www.json.org/)
+[![SVG](https://img.shields.io/badge/SVG-FFB13B?logo=svg&logoColor=white)](https://www.w3.org/Graphics/SVG/)
+[![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)
+[![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
 
 </div>
 Aplicación web para liquidación de cierre de turno de remises/taxis. Calcula automáticamente la división de ganancias entre el titular y el chofer según las reglas del negocio.
