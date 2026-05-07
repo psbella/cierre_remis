@@ -1,6 +1,5 @@
 const CACHE_NAME = 'cierre-turno-v1';
 const FILES_TO_CACHE = [
-    '.',
     'index.html',
     'css/styles.css',
     'js/utils.js',
@@ -10,14 +9,7 @@ const FILES_TO_CACHE = [
     'js/main.js',
     'manifest.json',
     'favicon.svg',
-    'icon-72x72.png',
-    'icon-96x96.png',
-    'icon-128x128.png',
-    'icon-144x144.png',
-    'icon-152x152.png',
-    'icon-192x192.png',
-    'icon-256x256.png',
-    'icon-512x512.png'
+    'favicon-128x128.png'
 ];
 
 self.addEventListener('install', (event) => {
