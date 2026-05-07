@@ -17,11 +17,6 @@
 [![No Tracking](https://img.shields.io/badge/No%20Tracking-✅-brightgreen)](https://psbella.github.io/cierre_remis/)
 [![GDPR](https://img.shields.io/badge/GDPR-Compliant-brightgreen)](https://psbella.github.io/cierre_remis/)
 
-<!-- SEO Y METADATOS -->
-[![Sitemap](https://img.shields.io/badge/Sitemap-Yes-brightgreen)](sitemap.xml)
-[![Robots](https://img.shields.io/badge/Robots-Yes-brightgreen)](robots.txt)
-[![Humans](https://img.shields.io/badge/Humans.txt-Yes-brightgreen)](humans.txt)
-
 <!-- PWA Y OFFLINE -->
 [![PWA](https://img.shields.io/badge/PWA-Enabled-5a0fc8)](https://web.dev/progressive-web-apps/)
 [![Offline](https://img.shields.io/badge/Offline-First-brightgreen)](https://web.dev/offline-fallback-page/)
@@ -31,6 +26,13 @@
 [![Responsive](https://img.shields.io/badge/Responsive-Yes-brightgreen)](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Responsive_Design)
 [![Mobile First](https://img.shields.io/badge/Mobile%20First-Yes-blue)](https://developer.mozilla.org/es/docs/Web/Progressive_web_apps)
 [![Accessibility](https://img.shields.io/badge/Accessibility-WCAG%20AA-brightgreen)](https://www.w3.org/WAI/WCAG2AA/)
+[![WCAG](https://img.shields.io/badge/WCAG-2.1%20AA-brightgreen)](https://www.w3.org/TR/WCAG21/)
+[![A11y](https://img.shields.io/badge/A11y-Improved-brightgreen)](https://www.w3.org/WAI/)
+
+<!-- SEO Y METADATOS -->
+[![Sitemap](https://img.shields.io/badge/Sitemap-Yes-brightgreen)](sitemap.xml)
+[![Robots](https://img.shields.io/badge/Robots-Yes-brightgreen)](robots.txt)
+[![Humans](https://img.shields.io/badge/Humans.txt-Yes-brightgreen)](humans.txt)
 
 <!-- TECNOLOGÍAS -->
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
@@ -39,20 +41,19 @@
 [![jsPDF](https://img.shields.io/badge/jsPDF-2.5.1-red)](https://github.com/parallax/jsPDF)
 [![SVG](https://img.shields.io/badge/SVG-FFB13B?logo=svg&logoColor=white)](https://www.w3.org/Graphics/SVG/)
 [![JSON](https://img.shields.io/badge/JSON-000000?logo=json&logoColor=white)](https://www.json.org/)
-[![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)
-[![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
 
 <!-- HERRAMIENTAS Y SERVICIOS -->
+[![Git](https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white)](https://git-scm.com/)
+[![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?logo=visualstudiocode&logoColor=white)](https://code.visualstudio.com/)
 [![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub%20Pages-blue)](https://pages.github.com/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?logo=githubactions&logoColor=white)](https://github.com/features/actions)
 
 <!-- MÉTRICAS Y CALIDAD -->
-
-[![Performance](https://img.shields.io/badge/Performance-96%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![Performance](https://img.shields.io/badge/Performance-94%25-brightgreen?logo=lighthouse&logoColor=white)]()
 [![Accessibility](https://img.shields.io/badge/Accessibility-86%25-yellow?logo=lighthouse&logoColor=white)]()
 [![Best Practices](https://img.shields.io/badge/Best%20Practices-100%25-brightgreen?logo=lighthouse&logoColor=white)]()
 [![SEO](https://img.shields.io/badge/SEO-90%25-brightgreen?logo=lighthouse&logoColor=white)]()
-[![PWA](https://img.shields.io/badge/PWA-96%25-brightgreen?logo=lighthouse&logoColor=white)]()
+[![PWA](https://img.shields.io/badge/PWA-100%25-brightgreen?logo=lighthouse&logoColor=white)]()
 [![Passed](https://img.shields.io/badge/Lighthouse-Passed-brightgreen?logo=lighthouse&logoColor=white)]()
 
 
