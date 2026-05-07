@@ -2,6 +2,9 @@
 /* LOGICA PRINCIPAL                              */
 /* ============================================= */
 
+// Limpiar campo fecha al cargar
+document.getElementById('fecha').value = '';
+
 function actualizarPantalla() {
     const r = calcularTodo();
     const elementos = obtenerElementosDOM();
@@ -66,9 +69,6 @@ const todosLosCampos = document.querySelectorAll('input, textarea');
 todosLosCampos.forEach(campo => {
     campo.addEventListener('input', actualizarPantalla);
 });
-
-// Limpiar campo fecha al cargar
-document.getElementById('fecha').value = '';
 
 // Inicializar
 actualizarPantalla();
