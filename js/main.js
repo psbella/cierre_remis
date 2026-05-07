@@ -67,5 +67,8 @@ todosLosCampos.forEach(campo => {
     campo.addEventListener('input', actualizarPantalla);
 });
 
+// Limpiar campo fecha al cargar
+document.getElementById('fecha').value = '';
+
 // Inicializar
 actualizarPantalla();
