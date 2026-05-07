@@ -17,6 +17,11 @@
 [![No Tracking](https://img.shields.io/badge/No%20Tracking-✅-brightgreen)](https://psbella.github.io/cierre_remis/)
 [![GDPR](https://img.shields.io/badge/GDPR-Compliant-brightgreen)](https://psbella.github.io/cierre_remis/)
 
+<!-- SEO Y METADATOS -->
+[![Sitemap](https://img.shields.io/badge/Sitemap-Yes-brightgreen)](sitemap.xml)
+[![Robots](https://img.shields.io/badge/Robots-Yes-brightgreen)](robots.txt)
+[![Humans](https://img.shields.io/badge/Humans.txt-Yes-brightgreen)](humans.txt)
+
 <!-- PWA Y OFFLINE -->
 [![PWA](https://img.shields.io/badge/PWA-Enabled-5a0fc8)](https://web.dev/progressive-web-apps/)
 [![Offline](https://img.shields.io/badge/Offline-First-brightgreen)](https://web.dev/offline-fallback-page/)
@@ -132,16 +137,25 @@ Se puede convertir a APK usando servicios como:
 
 ## 📂 Estructura del proyecto
 
-```cierre_remis/v1.1.0/
+```cierre_remis/
 ├── index.html
+├── manifest.json
+├── sw.js
+├── sitemap.xml
+├── robots.txt
+├── humans.txt
 ├── css/
 │   └── styles.css
-└── js/
-    ├── utils.js
-    ├── calculations.js
-    ├── pdf.js
-    ├── share.js
-    └── main.js
+├── js/
+│   ├── utils.js
+│   ├── calculations.js
+│   ├── pdf.js
+│   ├── share.js
+│   └── main.js
+└── assets/
+    ├── favicon.svg
+    ├── favicon-128x128.png
+    └── icon-*.png (10 archivos)
 ```
 
 
