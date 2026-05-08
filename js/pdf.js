@@ -161,5 +161,5 @@ function exportarPDF() {
     pdf.text('Chofer = Base - Frecuencia', 20, y);
     
     // Guardar PDF
-    pdf.save(`cierre_turno_${r.fecha}_${r.chofer || 'sin_nombre'}.pdf`);
+    pdf.save(`cierre_turno_${r.fechaFormateada.replace(/\//g, '-')}_${r.chofer || 'sin_nombre'}.pdf`);
 }
