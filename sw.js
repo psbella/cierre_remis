@@ -1,15 +1,16 @@
 const CACHE_NAME = 'cierre-turno-v1';
 const FILES_TO_CACHE = [
-    'index.html',
-    'css/styles.css',
-    'js/utils.js',
-    'js/calculations.js',
-    'js/pdf.js',
-    'js/share.js',
-    'js/main.js',
-    'manifest.json',
-    'favicon.svg',
-    'favicon-128x128.png'
+    '/cierre_remis/',
+    '/cierre_remis/index.html',
+    '/cierre_remis/css/styles.css',
+    '/cierre_remis/js/utils.js',
+    '/cierre_remis/js/calculations.js',
+    '/cierre_remis/js/pdf.js',
+    '/cierre_remis/js/share.js',
+    '/cierre_remis/js/main.js',
+    '/cierre_remis/manifest.json',
+    '/cierre_remis/favicon.svg',
+    '/cierre_remis/favicon-128x128.png'
 ];
 
 self.addEventListener('install', (event) => {
@@ -17,6 +18,8 @@ self.addEventListener('install', (event) => {
         caches.open(CACHE_NAME).then((cache) => {
             console.log('Archivos cacheados');
             return cache.addAll(FILES_TO_CACHE);
+        }).catch((error) => {
+            console.error('Error al cachear archivos:', error);
         })
     );
     self.skipWaiting();
